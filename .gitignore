@@ -1,6 +1,5 @@
 .pytest_cache/
 .venv/
-api/
 doc/
 out/
 src/__pycache__
