@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
+import time
 
 print("\n*** Welcome to the Sandbox for Web !!! ***\n")
 
@@ -17,20 +17,51 @@ driver.set_page_load_timeout(10)
 driver.get('https://reqres.in')
 
 
+def print_all_elements_of_requests(element_xpath):
+    elem = driver.find_element(By.XPATH, element_xpath)
+    print(elem.text)
+
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[1]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[2]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[3]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[4]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[5]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[6]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[7]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[8]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[9]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[10]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[11]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[12]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[13]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[14]')
+print_all_elements_of_requests('//*[@id="console"]/div[1]/ul/li[15]')
+
+
 # Testing REQRES requests via web browser
 
 def test_request_via_element(element_css_selector, title):
     print("\n\n----- ", title, " -----\n\n")
-    driver.find_element(By.CSS_SELECTOR, element_css_selector)
-    driver.implicitly_wait(50)
+    request_sender_element = driver.find_element(By.CSS_SELECTOR, element_css_selector)
+    request_sender_element.click()
+    driver.implicitly_wait(100)
 
-    status_code_element = WebDriverWait(driver, 10).until(driver.find_element(By.CSS_SELECTOR, ".response-code"))
-    response_body_element = WebDriverWait(driver, 10).until(driver.find_element(By.CSS_SELECTOR, ".response > pre"))
+    print("Sleeping...")
+    time.sleep(5)
 
-    print("\nStatus Code: ", status_code_element.text, '\n')
-    print("\nResponse Body:\n", response_body_element.text, '\n')
+    element = driver.find_element(By.CSS_SELECTOR, ".response-code")
+    if element.is_displayed():
+        elem = element.text
+        print("\nStatus Code: ", elem, '\n')
+    else:
+        print("ELEMENT is not displayed")
 
-    driver.implicitly_wait(50) # timeout between the current and next requests
+    element = driver.find_element(By.CSS_SELECTOR, ".response > pre")
+    if element.is_displayed():
+        elem = element.text
+        print("\nResponse Body:\n", elem, '\n')
+    else:
+        print("ELEMENT is not displayed")
 
 test_request_via_element("li:nth-child(1) > a", "Send Request_01: List Users")
 test_request_via_element("li:nth-child(2) > a", "Send Request_02: Single User")
