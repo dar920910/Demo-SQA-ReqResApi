@@ -2,6 +2,7 @@
 
 import http.client
 import requests
+import json
 
 
 def investigate_all_users_request_v1():
@@ -32,6 +33,38 @@ def investigate_all_users_request_v2():
     print("3) Response Headers:\n\n", response.headers, '\n')
 
 
+def investigate_single_user_response_body():
+
+    test_json_object = json.loads("""{
+        "data": {
+            "id": 2,
+            "email": "janet.weaver@reqres.in",
+            "first_name": "Janet",
+            "last_name": "Weaver",
+            "avatar": "https://reqres.in/img/faces/2-image.jpg"
+        },
+        "support": {
+            "url": "https://reqres.in/#support-heading",
+            "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+        }
+        }"""
+    )
+
+    print("\n--> Test JSON object:\n", test_json_object)
+
+    request_url = 'https://reqres.in/api/users/2'
+    response = requests.get(request_url)
+    response_body_json_object = json.loads(response.text)
+    print("\n--> Response body JSON object:\n", response_body_json_object)
+
+    if test_json_object == response_body_json_object:
+        print("\nBoth JSON objects are equal.\n")
+    else:
+        print("\nBoth JSON objects are different.\n")
+
+
 # EXPERIMENTAL EXECUTION
+
 investigate_all_users_request_v1()
 investigate_all_users_request_v2()
+investigate_single_user_response_body()
