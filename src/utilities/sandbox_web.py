@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-print("\n*** Welcome to the Sandbox for Web !!! ***\n")
+
+print("\n*** Welcome to the Sandbox for WEB experiments !!! ***\n")
+
 
 # Configuring Selenium Web Driver for Chrome.
 

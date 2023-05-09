@@ -5,6 +5,9 @@ import requests
 import json
 
 
+print("\n*** Welcome to the Sandbox for API experiments !!! ***\n")
+
+
 def investigate_all_users_request_v1():
     
     target_host = 'reqres.in'
