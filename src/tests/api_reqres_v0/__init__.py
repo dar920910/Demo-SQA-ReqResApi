@@ -1,0 +1,1 @@
+all = ["test_suite1_reqres_api.py", "test_suite2_reqres_web.py", "test_suite3_compare_results.py"]

@@ -1,9 +1,9 @@
 import json
 import pytest
 import requests
-import api_reqres_v0
-import test_suite_reqres_api
-import test_suite_reqres_web
+import tests.api_reqres_v0.api_reqres_v0 as api_reqres_v0
+import tests.api_reqres_v0.test_suite1_reqres_api as test_suite1_reqres_api
+import tests.api_reqres_v0.test_suite2_reqres_web as test_suite2_reqres_web
 
 
 # Define requests' keys for using in tests.
@@ -26,10 +26,10 @@ req_15_key = api_reqres_v0.API_V0_DELAYED_KEY
 
 # Define aliases of dictionaries keys for using in tests.
 
-api_resp_codes = test_suite_reqres_api.api_tests_response_codes
-api_resp_bodies = test_suite_reqres_api.api_tests_response_bodies
-web_resp_codes = test_suite_reqres_web.web_tests_response_codes
-web_resp_bodies = test_suite_reqres_web.web_tests_response_bodies
+api_resp_codes = test_suite1_reqres_api.api_tests_response_codes
+api_resp_bodies = test_suite1_reqres_api.api_tests_response_bodies
+web_resp_codes = test_suite2_reqres_web.web_tests_response_codes
+web_resp_bodies = test_suite2_reqres_web.web_tests_response_bodies
 
 
 

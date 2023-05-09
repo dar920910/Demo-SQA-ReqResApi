@@ -3,7 +3,7 @@
 import json
 import pytest
 import requests
-import api_reqres_v0
+import tests.api_reqres_v0.api_reqres_v0 as api_reqres_v0
 
 
 # Define dictionaries to save results of requests (for comparing results of API and WEB tests)
