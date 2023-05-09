@@ -1,5 +1,29 @@
 """api_reqres_v0.py: This module contains definitions of constants for expected results used in test suites for the default API version (named as v0)."""
 
+# Note: Values of *_SENDER_ELEMENT_CSS_SELECTOR constants are values from auto-generated .py-script via Selenium IDE.
+# Website https://reqres.in uses React, I estimate detecting CSS by manually in browser's DevTools as a more difficult task than using XPath values to identificate web elements in web tests.
+# Probably, these values should be replaced to XPath values for the same web elements for improving code understanding and simplify detecting the elements via browser's DevTools.
+
+
+
+# API REQUESTS KEYS - these constansts are used as keys in dictionaries to provide ability simplified comparing actual results of api tests and web tests.
+
+API_V0_LIST_USERS_KEY = "LIST_USERS"
+API_V0_SINGLE_USER_KEY = "SINGLE_USER"
+API_V0_SINGLE_USER_NOT_FOUND_KEY = "SINGLE_USER_NOT_FOUND"
+API_V0_LIST_RESOURCE_KEY = "LIST_RESOURCE"
+API_V0_SINGLE_RESOURCE_KEY = "SINGLE_RESOURCE"
+API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY = "SINGLE_RESOURCE_NOT_FOUND"
+API_V0_CREATE_KEY = "CREATE"
+API_V0_UPDATE_PUT_KEY = "UPDATE_PUT"
+API_V0_UPDATE_PATCH_KEY = "UPDATE_PATCH"
+API_V0_DELETE_KEY = "DELETE"
+API_V0_REGISTER_SUCCESSFUL_KEY = "REGISTER_SUCCESSFUL"
+API_V0_REGISTER_UNSUCCESSFUL_KEY = "REGISTER_UNSUCCESSFUL"
+API_V0_LOGIN_SUCCESSFUL_KEY = "LOGIN_SUCCESSFUL"
+API_V0_LOGIN_UNSUCCESSFUL_KEY = "LOGIN_UNSUCCESSFUL"
+API_V0_DELAYED_KEY = "DELAYED"
+
 
 # REQUEST_01: LIST USERS
 
