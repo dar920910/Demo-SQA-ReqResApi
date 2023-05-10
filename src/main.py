@@ -20,3 +20,63 @@ These will be used to demonstrate scaling of web testing in this project.
 """
 web_pages = {'page1': '', 'page2': 'more-examples.html', 'page3': 'all-examples.html'}
 
+def main():
+    print("0 - Web Page 1 and API version 1")
+    print("1 - API version 1")
+    print("2 - Web Page 1")
+    print("3 - All API versions")
+    print("4 - All Web Pages")
+    print("5 - ALL TESTS")
+    
+
+    user_input = ''
+    valid_choice = False
+    tests_modules = []
+    while valid_choice == False:
+        print("Select tests to run: ")
+        user_input = input()
+
+        if user_input == '0':
+            # Web Page 1 and API version 1
+            tests_modules.append("src/tests/api/test_suite_api_v1.py")
+            tests_modules.append("src/tests/web/test_suite_page1.py")
+            tests_modules.append("src/tests/web/test_suite_page1_vs_api_v1.py")
+            valid_choice = True
+        elif user_input == '1':
+            # API version 1
+            tests_modules.append("src/tests/api/test_suite_api_v1.py")
+            valid_choice = True
+        elif user_input == '2':
+            # Web Page 1
+            tests_modules.append("src/tests/web/test_suite_page1.py")
+            valid_choice = True
+        elif user_input == '3':
+            # All API versions
+            tests_modules.append("src/tests/api")
+            valid_choice = True
+        elif user_input == '4':
+            # All Web Pages
+            tests_modules.append("src/tests/web")
+            valid_choice = True
+        elif user_input == '5':
+            # ALL TESTS
+            tests_modules.append("src/tests/")
+            valid_choice = True
+        elif user_input == 'q':
+            print("Exit from the program")
+            return
+        else:
+            print("ERROR")
+        
+    print(user_input)
+    
+    import pytest
+    
+    pytest_args = ["-v", "-s"]
+    pytest_args.extend(tests_modules)
+    
+    print("Arguments for pytest: ", pytest_args)
+    
+    pytest.main(pytest_args)
+
+main()
