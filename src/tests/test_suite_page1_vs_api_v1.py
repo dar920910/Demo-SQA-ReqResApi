@@ -1,7 +1,7 @@
 # test_suite_page1_vs_api_v1.py
 
 import pytest
-import tests.api_reqres_v0.api_reqres_v0 as api_reqres_v0
+import datasets.reqres_common_data as api_reqres_v0
 import tests.api.test_suite_api_v1 as test_suite_api_v1
 import tests.web.test_suite_page1 as test_suite_page1
 

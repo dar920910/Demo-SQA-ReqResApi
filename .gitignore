@@ -3,8 +3,8 @@
 doc/
 out/
 src/__pycache__
+src/datasets/__pycache__
 src/tests/__pycache__
-src/tests/api_reqres_v0/__pycache__
 src/tests/api/__pycache__
 src/tests/web/__pycache__
 src/utilities/__pycache__

@@ -1,4 +1,4 @@
-"""api_reqres_v0.py: This module contains definitions of constants for expected results used in test suites for the default API version (named as v0)."""
+"""reqres_common_data.py: This module contains definitions of constants for expected results used in test suites for the default API version (named as v0)."""
 
 # Note: Values of *_SENDER_ELEMENT_CSS_SELECTOR constants are values from auto-generated .py-script via Selenium IDE.
 # Website https://reqres.in uses React, I estimate detecting CSS by manually in browser's DevTools as a more difficult task than using XPath values to identificate web elements in web tests.

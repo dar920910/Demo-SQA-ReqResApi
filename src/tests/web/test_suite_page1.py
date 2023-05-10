@@ -5,7 +5,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-import tests.api_reqres_v0.api_reqres_v0 as api_reqres_v0
+import datasets.reqres_common_data as api_reqres_v0
 
 
 # Configuring Selenium Web Driver for Chrome.
