@@ -1,28 +1,10 @@
 # test_suite_page1_vs_api_v1.py
 
 import pytest
-import datasets.reqres_common_data as api_reqres_v0
+import datasets.reqres_base_keys as api_keys
 import tests.api.test_suite_api_v1 as test_suite_api_v1
 import tests.web.test_suite_page1 as test_suite_page1
 
-
-# Define requests' keys for using in tests.
-
-req_01_key = api_reqres_v0.API_V0_LIST_USERS_KEY
-req_02_key = api_reqres_v0.API_V0_SINGLE_USER_KEY
-req_03_key = api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_KEY
-req_04_key = api_reqres_v0.API_V0_LIST_RESOURCE_KEY
-req_05_key = api_reqres_v0.API_V0_SINGLE_RESOURCE_KEY
-req_06_key = api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY
-req_07_key = api_reqres_v0.API_V0_CREATE_KEY
-req_08_key = api_reqres_v0.API_V0_UPDATE_PUT_KEY
-req_09_key = api_reqres_v0.API_V0_UPDATE_PATCH_KEY
-req_10_key = api_reqres_v0.API_V0_DELETE_KEY
-req_11_key = api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_KEY
-req_12_key = api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_KEY
-req_13_key = api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_KEY
-req_14_key = api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_KEY
-req_15_key = api_reqres_v0.API_V0_DELAYED_KEY
 
 # Define aliases of dictionaries keys for using in tests.
 
@@ -37,28 +19,28 @@ web_resp_bodies = test_suite_page1.web_tests_response_bodies
 
 def test_compare_for_get_list_of_users_from_page_to_check_response_code():
     """test_compare_for_get_list_of_users_from_page_to_check_response_code"""
-    api_status_code = api_resp_codes[req_01_key]
-    web_status_code = web_resp_codes[req_01_key]
+    api_status_code = api_resp_codes[api_keys.LIST_USERS]
+    web_status_code = web_resp_codes[api_keys.LIST_USERS]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_list_of_users_from_page_to_check_response_body():
     """test_compare_for_get_list_of_users_from_page_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_01_key]
-    web_response_body = web_resp_bodies[req_01_key]
+    api_response_body = api_resp_bodies[api_keys.LIST_USERS]
+    web_response_body = web_resp_bodies[api_keys.LIST_USERS]
     assert api_response_body == web_response_body
 
 # REQUEST_02: SINGLE USER
 
 def test_compare_for_get_single_user_by_id_to_check_response_code():
     """test_compare_for_get_single_user_by_id_to_check_response_code"""
-    api_status_code = api_resp_codes[req_02_key]
-    web_status_code = web_resp_codes[req_02_key]
+    api_status_code = api_resp_codes[api_keys.SINGLE_USER]
+    web_status_code = web_resp_codes[api_keys.SINGLE_USER]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_single_user_by_id_to_check_response_body():
     """test_compare_for_get_get_single_user_by_id_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_02_key]
-    web_response_body = web_resp_bodies[req_02_key]
+    api_response_body = api_resp_bodies[api_keys.SINGLE_USER]
+    web_response_body = web_resp_bodies[api_keys.SINGLE_USER]
     assert api_response_body == web_response_body
 
 
@@ -66,14 +48,14 @@ def test_compare_for_get_single_user_by_id_to_check_response_body():
 
 def test_compare_for_get_no_existing_single_user_by_id_to_check_response_code():
     """test_compare_for_get_no_existing_single_user_by_id_to_check_response_code"""
-    api_status_code = api_resp_codes[req_03_key]
-    web_status_code = web_resp_codes[req_03_key]
+    api_status_code = api_resp_codes[api_keys.SINGLE_USER_NOT_FOUND]
+    web_status_code = web_resp_codes[api_keys.SINGLE_USER_NOT_FOUND]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_no_existing_single_user_by_id_to_check_response_body():
     """test_compare_for_get_no_existing_single_user_by_id_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_03_key]
-    web_response_body = web_resp_bodies[req_03_key]
+    api_response_body = api_resp_bodies[api_keys.SINGLE_USER_NOT_FOUND]
+    web_response_body = web_resp_bodies[api_keys.SINGLE_USER_NOT_FOUND]
     assert api_response_body == web_response_body
 
 
@@ -81,14 +63,14 @@ def test_compare_for_get_no_existing_single_user_by_id_to_check_response_body():
 
 def test_compare_for_get_list_of_resources_to_check_response_code():
     """test_compare_for_get_list_of_resources_to_check_response_code"""
-    api_status_code = api_resp_codes[req_04_key]
-    web_status_code = web_resp_codes[req_04_key]
+    api_status_code = api_resp_codes[api_keys.LIST_RESOURCE]
+    web_status_code = web_resp_codes[api_keys.LIST_RESOURCE]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_list_of_resources_to_check_response_body():
     """test_compare_for_get_list_of_resources_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_04_key]
-    web_response_body = web_resp_bodies[req_04_key]
+    api_response_body = api_resp_bodies[api_keys.LIST_RESOURCE]
+    web_response_body = web_resp_bodies[api_keys.LIST_RESOURCE]
     assert api_response_body == web_response_body
 
 
@@ -96,14 +78,14 @@ def test_compare_for_get_list_of_resources_to_check_response_body():
 
 def test_compare_for_get_single_resource_by_id_to_check_response_code():
     """test_compare_for_get_single_resource_by_id_to_check_response_code"""
-    api_status_code = api_resp_codes[req_05_key]
-    web_status_code = web_resp_codes[req_05_key]
+    api_status_code = api_resp_codes[api_keys.SINGLE_RESOURCE]
+    web_status_code = web_resp_codes[api_keys.SINGLE_RESOURCE]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_single_resource_by_id_to_check_response_body():
     """test_compare_for_get_single_resource_by_id_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_05_key]
-    web_response_body = web_resp_bodies[req_05_key]
+    api_response_body = api_resp_bodies[api_keys.SINGLE_RESOURCE]
+    web_response_body = web_resp_bodies[api_keys.SINGLE_RESOURCE]
     assert api_response_body == web_response_body
 
 
@@ -111,14 +93,14 @@ def test_compare_for_get_single_resource_by_id_to_check_response_body():
 
 def test_compare_for_get_no_existing_single_resource_by_id_to_check_response_code():
     """test_compare_for_get_no_existing_single_resource_by_id_to_check_response_code"""
-    api_status_code = api_resp_codes[req_06_key]
-    web_status_code = web_resp_codes[req_06_key]
+    api_status_code = api_resp_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND]
+    web_status_code = web_resp_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_no_existing_single_resource_by_id_to_check_response_body():
     """test_compare_for_get_no_existing_single_resource_by_id_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_06_key]
-    web_response_body = web_resp_bodies[req_06_key]
+    api_response_body = api_resp_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND]
+    web_response_body = web_resp_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND]
     assert api_response_body == web_response_body
 
 
@@ -126,22 +108,22 @@ def test_compare_for_get_no_existing_single_resource_by_id_to_check_response_bod
 
 def test_compare_for_create_new_user_to_check_response_code():
     """test_compare_for_create_new_user_to_check_response_code"""
-    api_status_code = api_resp_codes[req_07_key]
-    web_status_code = web_resp_codes[req_07_key]
+    api_status_code = api_resp_codes[api_keys.CREATE]
+    web_status_code = web_resp_codes[api_keys.CREATE]
     assert api_status_code == web_status_code
 
 def test_compare_for_new_user_name_attribute():
     """test_compare_for_new_user_name_attribute"""
     target_attribute = 'name'
-    api_response_body = api_resp_bodies[req_07_key]
-    web_response_body = web_resp_bodies[req_07_key]
+    api_response_body = api_resp_bodies[api_keys.CREATE]
+    web_response_body = web_resp_bodies[api_keys.CREATE]
     assert api_response_body[target_attribute] == web_response_body[target_attribute]
 
 def test_compare_for_new_user_job_attribute():
     """test_compare_for_new_user_job_attribute"""
     target_attribute = 'job'
-    api_response_body = api_resp_bodies[req_07_key]
-    web_response_body = web_resp_bodies[req_07_key]
+    api_response_body = api_resp_bodies[api_keys.CREATE]
+    web_response_body = web_resp_bodies[api_keys.CREATE]
     assert api_response_body[target_attribute] == web_response_body[target_attribute]
 
 
@@ -149,22 +131,22 @@ def test_compare_for_new_user_job_attribute():
 
 def test_compare_for_put_update_user_to_check_response_code():
     """test_compare_for_put_update_user_to_check_response_code"""
-    api_status_code = api_resp_codes[req_08_key]
-    web_status_code = web_resp_codes[req_08_key]
+    api_status_code = api_resp_codes[api_keys.UPDATE_PUT]
+    web_status_code = web_resp_codes[api_keys.UPDATE_PUT]
     assert api_status_code == web_status_code
 
 def test_compare_for_put_update_user_name_attribute():
     """test_compare_for_put_update_user_name_attribute"""
     target_attribute = 'name'
-    api_response_body = api_resp_bodies[req_08_key]
-    web_response_body = web_resp_bodies[req_08_key]
+    api_response_body = api_resp_bodies[api_keys.UPDATE_PUT]
+    web_response_body = web_resp_bodies[api_keys.UPDATE_PUT]
     assert api_response_body[target_attribute] == web_response_body[target_attribute]
 
 def test_compare_for_put_update_user_job_attribute():
     """test_compare_for_put_update_user_job_attribute"""
     target_attribute = 'job'
-    api_response_body = api_resp_bodies[req_08_key]
-    web_response_body = web_resp_bodies[req_08_key]
+    api_response_body = api_resp_bodies[api_keys.UPDATE_PUT]
+    web_response_body = web_resp_bodies[api_keys.UPDATE_PUT]
     assert api_response_body[target_attribute] == web_response_body[target_attribute]
 
 
@@ -172,22 +154,22 @@ def test_compare_for_put_update_user_job_attribute():
 
 def test_compare_for_patch_update_user_to_check_response_code():
     """test_compare_for_patch_update_user_to_check_response_code"""
-    api_status_code = api_resp_codes[req_09_key]
-    web_status_code = web_resp_codes[req_09_key]
+    api_status_code = api_resp_codes[api_keys.UPDATE_PATCH]
+    web_status_code = web_resp_codes[api_keys.UPDATE_PATCH]
     assert api_status_code == web_status_code
 
 def test_compare_for_patch_update_user_name_attribute():
     """test_compare_for_patch_update_user_name_attribute"""
     target_attribute = 'name'
-    api_response_body = api_resp_bodies[req_09_key]
-    web_response_body = web_resp_bodies[req_09_key]
+    api_response_body = api_resp_bodies[api_keys.UPDATE_PATCH]
+    web_response_body = web_resp_bodies[api_keys.UPDATE_PATCH]
     assert api_response_body[target_attribute] == web_response_body[target_attribute]
 
 def test_compare_for_patch_update_user_job_attribute():
     """test_compare_for_patch_update_user_job_attribute"""
     target_attribute = 'job'
-    api_response_body = api_resp_bodies[req_09_key]
-    web_response_body = web_resp_bodies[req_09_key]
+    api_response_body = api_resp_bodies[api_keys.UPDATE_PATCH]
+    web_response_body = web_resp_bodies[api_keys.UPDATE_PATCH]
     assert api_response_body[target_attribute] == web_response_body[target_attribute]
 
 
@@ -195,8 +177,8 @@ def test_compare_for_patch_update_user_job_attribute():
 
 def test_compare_for_delete_user_by_id_to_check_response_code():
     """test_compare_for_delete_user_by_id_to_check_response_code"""
-    api_status_code = api_resp_codes[req_10_key]
-    web_status_code = web_resp_codes[req_10_key]
+    api_status_code = api_resp_codes[api_keys.DELETE]
+    web_status_code = web_resp_codes[api_keys.DELETE]
     assert api_status_code == web_status_code
 
 
@@ -204,14 +186,14 @@ def test_compare_for_delete_user_by_id_to_check_response_code():
 
 def test_compare_for_successful_register_to_check_response_code():
     """test_compare_for_successful_register_to_check_response_code"""
-    api_status_code = api_resp_codes[req_11_key]
-    web_status_code = web_resp_codes[req_11_key]
+    api_status_code = api_resp_codes[api_keys.REGISTER_SUCCESSFUL]
+    web_status_code = web_resp_codes[api_keys.REGISTER_SUCCESSFUL]
     assert api_status_code == web_status_code
 
 def test_compare_for_successful_register_to_check_response_body():
     """test_compare_for_successful_register_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_11_key]
-    web_response_body = web_resp_bodies[req_11_key]
+    api_response_body = api_resp_bodies[api_keys.REGISTER_SUCCESSFUL]
+    web_response_body = web_resp_bodies[api_keys.REGISTER_SUCCESSFUL]
     assert api_response_body == web_response_body
 
 
@@ -219,14 +201,14 @@ def test_compare_for_successful_register_to_check_response_body():
 
 def test_compare_for_unsuccessful_register_to_check_response_code():
     """test_compare_for_unsuccessful_register_to_check_response_code"""
-    api_status_code = api_resp_codes[req_12_key]
-    web_status_code = web_resp_codes[req_12_key]
+    api_status_code = api_resp_codes[api_keys.REGISTER_UNSUCCESSFUL]
+    web_status_code = web_resp_codes[api_keys.REGISTER_UNSUCCESSFUL]
     assert api_status_code == web_status_code
 
 def test_compare_for_unsuccessful_register_to_check_response_body():
     """test_compare_for_unsuccessful_register_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_12_key]
-    web_response_body = web_resp_bodies[req_12_key]
+    api_response_body = api_resp_bodies[api_keys.REGISTER_UNSUCCESSFUL]
+    web_response_body = web_resp_bodies[api_keys.REGISTER_UNSUCCESSFUL]
     assert api_response_body == web_response_body
 
 
@@ -234,14 +216,14 @@ def test_compare_for_unsuccessful_register_to_check_response_body():
 
 def test_compare_for_successful_login_to_check_response_code():
     """test_compare_for_successful_login_to_check_response_code"""
-    api_status_code = api_resp_codes[req_13_key]
-    web_status_code = web_resp_codes[req_13_key]
+    api_status_code = api_resp_codes[api_keys.LOGIN_SUCCESSFUL]
+    web_status_code = web_resp_codes[api_keys.LOGIN_SUCCESSFUL]
     assert api_status_code == web_status_code
 
 def test_compare_for_successful_login_to_check_response_body():
     """test_compare_for_successful_login_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_13_key]
-    web_response_body = web_resp_bodies[req_13_key]
+    api_response_body = api_resp_bodies[api_keys.LOGIN_SUCCESSFUL]
+    web_response_body = web_resp_bodies[api_keys.LOGIN_SUCCESSFUL]
     assert api_response_body == web_response_body
 
 
@@ -249,14 +231,14 @@ def test_compare_for_successful_login_to_check_response_body():
 
 def test_compare_for_unsuccessful_login_to_check_response_code():
     """test_compare_for_unsuccessful_login_to_check_response_code"""
-    api_status_code = api_resp_codes[req_14_key]
-    web_status_code = web_resp_codes[req_14_key]
+    api_status_code = api_resp_codes[api_keys.LOGIN_UNSUCCESSFUL]
+    web_status_code = web_resp_codes[api_keys.LOGIN_UNSUCCESSFUL]
     assert api_status_code == web_status_code
 
 def test_compare_for_unsuccessful_login_to_check_response_body():
     """test_compare_for_unsuccessful_login_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_14_key]
-    web_response_body = web_resp_bodies[req_14_key]
+    api_response_body = api_resp_bodies[api_keys.LOGIN_UNSUCCESSFUL]
+    web_response_body = web_resp_bodies[api_keys.LOGIN_UNSUCCESSFUL]
     assert api_response_body == web_response_body
 
 
@@ -264,12 +246,12 @@ def test_compare_for_unsuccessful_login_to_check_response_body():
 
 def test_compare_for_get_list_of_users_from_the_page_with_delay_to_check_response_code():
     """test_compare_for_get_list_of_users_from_the_page_with_delay_to_check_response_code"""
-    api_status_code = api_resp_codes[req_15_key]
-    web_status_code = web_resp_codes[req_15_key]
+    api_status_code = api_resp_codes[api_keys.DELAYED_RESPONSE]
+    web_status_code = web_resp_codes[api_keys.DELAYED_RESPONSE]
     assert api_status_code == web_status_code
 
 def test_compare_for_get_list_of_users_from_the_page_with_delay_to_check_response_body():
     """test_compare_for_get_list_of_users_from_the_page_with_delay_to_check_response_body"""
-    api_response_body = api_resp_bodies[req_15_key]
-    web_response_body = web_resp_bodies[req_15_key]
+    api_response_body = api_resp_bodies[api_keys.DELAYED_RESPONSE]
+    web_response_body = web_resp_bodies[api_keys.DELAYED_RESPONSE]
     assert api_response_body == web_response_body

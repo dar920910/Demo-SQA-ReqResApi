@@ -5,6 +5,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import datasets.reqres_base_keys as api_keys
 import datasets.reqres_common_data as api_reqres_v0
 
 
@@ -38,8 +39,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_01 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_01 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_LIST_USERS_KEY] = int(response_code_01)
-web_tests_response_bodies[api_reqres_v0.API_V0_LIST_USERS_KEY] = json.loads(response_body_01)
+web_tests_response_codes[api_keys.LIST_USERS] = int(response_code_01)
+web_tests_response_bodies[api_keys.LIST_USERS] = json.loads(response_body_01)
 
 # request_02
 
@@ -49,8 +50,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_02 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_02 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_USER_KEY] = int(response_code_02)
-web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_USER_KEY] = json.loads(response_body_02)
+web_tests_response_codes[api_keys.SINGLE_USER] = int(response_code_02)
+web_tests_response_bodies[api_keys.SINGLE_USER] = json.loads(response_body_02)
 
 # request_03
 
@@ -60,8 +61,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_03 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_03 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_KEY] = int(response_code_03)
-web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_KEY] = json.loads(response_body_03)
+web_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND] = int(response_code_03)
+web_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND] = json.loads(response_body_03)
 
 # request_04
 
@@ -71,8 +72,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_04 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_04 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_LIST_RESOURCE_KEY] = int(response_code_04)
-web_tests_response_bodies[api_reqres_v0.API_V0_LIST_RESOURCE_KEY] = json.loads(response_body_04)
+web_tests_response_codes[api_keys.LIST_RESOURCE] = int(response_code_04)
+web_tests_response_bodies[api_keys.LIST_RESOURCE] = json.loads(response_body_04)
 
 # request_05
 
@@ -82,8 +83,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_05 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_05 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_RESOURCE_KEY] = int(response_code_05)
-web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_RESOURCE_KEY] = json.loads(response_body_05)
+web_tests_response_codes[api_keys.SINGLE_RESOURCE] = int(response_code_05)
+web_tests_response_bodies[api_keys.SINGLE_RESOURCE] = json.loads(response_body_05)
 
 # request_06
 
@@ -93,8 +94,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_06 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_06 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY] = int(response_code_06)
-web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY] = json.loads(response_body_06)
+web_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND] = int(response_code_06)
+web_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND] = json.loads(response_body_06)
 
 # request_07
 
@@ -104,8 +105,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_07 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_07 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_CREATE_KEY] = int(response_code_07)
-web_tests_response_bodies[api_reqres_v0.API_V0_CREATE_KEY] = json.loads(response_body_07)
+web_tests_response_codes[api_keys.CREATE] = int(response_code_07)
+web_tests_response_bodies[api_keys.CREATE] = json.loads(response_body_07)
 
 # request_08
 
@@ -115,8 +116,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_08 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_08 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_UPDATE_PUT_KEY] = int(response_code_08)
-web_tests_response_bodies[api_reqres_v0.API_V0_UPDATE_PUT_KEY] = json.loads(response_body_08)
+web_tests_response_codes[api_keys.UPDATE_PUT] = int(response_code_08)
+web_tests_response_bodies[api_keys.UPDATE_PUT] = json.loads(response_body_08)
 
 # request_09
 
@@ -126,8 +127,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_09 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_09 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_UPDATE_PATCH_KEY] = int(response_code_09)
-web_tests_response_bodies[api_reqres_v0.API_V0_UPDATE_PATCH_KEY] = json.loads(response_body_09)
+web_tests_response_codes[api_keys.UPDATE_PATCH] = int(response_code_09)
+web_tests_response_bodies[api_keys.UPDATE_PATCH] = json.loads(response_body_09)
 
 # request_10
 
@@ -137,8 +138,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_10 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 #response_body_10 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_DELETE_KEY] = int(response_code_10)
-#web_tests_response_bodies[api_reqres_v0.API_V0_DELETE_KEY] = json.loads(response_body_10) # raises JSONDecodeError !!!
+web_tests_response_codes[api_keys.DELETE] = int(response_code_10)
+#web_tests_response_bodies[api_keys.DELETE] = json.loads(response_body_10) # raises JSONDecodeError !!!
 
 # request_11
 
@@ -148,8 +149,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_11 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_11 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_KEY] = int(response_code_11)
-web_tests_response_bodies[api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_KEY] = json.loads(response_body_11)
+web_tests_response_codes[api_keys.REGISTER_SUCCESSFUL] = int(response_code_11)
+web_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL] = json.loads(response_body_11)
 
 # request_12
 
@@ -159,8 +160,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_12 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_12 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_KEY] = int(response_code_12)
-web_tests_response_bodies[api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_KEY] = json.loads(response_body_12)
+web_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL] = int(response_code_12)
+web_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL] = json.loads(response_body_12)
 
 # request_13
 
@@ -170,8 +171,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_13 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_13 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_KEY] = int(response_code_13)
-web_tests_response_bodies[api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_KEY] = json.loads(response_body_13)
+web_tests_response_codes[api_keys.LOGIN_SUCCESSFUL] = int(response_code_13)
+web_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL] = json.loads(response_body_13)
 
 # request_14
 
@@ -181,8 +182,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_14 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_14 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_KEY] = int(response_code_14)
-web_tests_response_bodies[api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_KEY] = json.loads(response_body_14)
+web_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL] = int(response_code_14)
+web_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL] = json.loads(response_body_14)
 
 # request_15
 
@@ -192,8 +193,8 @@ driver.implicitly_wait(100)
 time.sleep(5)
 response_code_15 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
 response_body_15 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
-web_tests_response_codes[api_reqres_v0.API_V0_DELAYED_KEY] = int(response_code_15)
-web_tests_response_bodies[api_reqres_v0.API_V0_DELAYED_KEY] = json.loads(response_body_15)
+web_tests_response_codes[api_keys.DELAYED_RESPONSE] = int(response_code_15)
+web_tests_response_bodies[api_keys.DELAYED_RESPONSE] = json.loads(response_body_15)
 
 
 
@@ -204,13 +205,13 @@ web_tests_response_bodies[api_reqres_v0.API_V0_DELAYED_KEY] = json.loads(respons
 
 def test_get_list_of_users_from_page_to_check_response_code():
     """test_get_list_of_users_from_page_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_LIST_USERS_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.LIST_USERS]
     expected_response_code = api_reqres_v0.API_V0_LIST_USERS_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_list_of_users_from_page_to_check_response_body():
     """test_get_list_of_users_from_page_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_LIST_USERS_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.LIST_USERS]
     expected_response_body = json.loads(api_reqres_v0.API_V0_LIST_USERS_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -218,13 +219,13 @@ def test_get_list_of_users_from_page_to_check_response_body():
 
 def test_get_single_user_by_id_to_check_response_code():
     """test_get_single_user_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_USER_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.SINGLE_USER]
     expected_response_code = api_reqres_v0.API_V0_SINGLE_USER_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_single_user_by_id_to_check_response_body():
     """test_get_get_single_user_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_USER_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_USER]
     expected_response_body = json.loads(api_reqres_v0.API_V0_SINGLE_USER_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -233,13 +234,13 @@ def test_get_single_user_by_id_to_check_response_body():
 
 def test_get_no_existing_single_user_by_id_to_check_response_code():
     """test_get_no_existing_single_user_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND]
     expected_response_code = api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_no_existing_single_user_by_id_to_check_response_body():
     """test_get_no_existing_single_user_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND]
     expected_response_body = json.loads(api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -248,13 +249,13 @@ def test_get_no_existing_single_user_by_id_to_check_response_body():
 
 def test_get_list_of_resources_to_check_response_code():
     """test_get_list_of_resources_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_LIST_RESOURCE_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.LIST_RESOURCE]
     expected_response_code = api_reqres_v0.API_V0_LIST_RESOURCE_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_list_of_resources_to_check_response_body():
     """test_get_list_of_resources_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_LIST_RESOURCE_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.LIST_RESOURCE]
     expected_response_body = json.loads(api_reqres_v0.API_V0_LIST_RESOURCE_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -263,13 +264,13 @@ def test_get_list_of_resources_to_check_response_body():
 
 def test_get_single_resource_by_id_to_check_response_code():
     """test_get_single_resource_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_RESOURCE_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.SINGLE_RESOURCE]
     expected_response_code = api_reqres_v0.API_V0_SINGLE_RESOURCE_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_single_resource_by_id_to_check_response_body():
     """test_get_single_resource_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_RESOURCE_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_RESOURCE]
     expected_response_body = json.loads(api_reqres_v0.API_V0_SINGLE_RESOURCE_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -278,13 +279,13 @@ def test_get_single_resource_by_id_to_check_response_body():
 
 def test_get_no_existing_single_resource_by_id_to_check_response_code():
     """test_get_no_existing_single_resource_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND]
     expected_response_code = api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_no_existing_single_resource_by_id_to_check_response_body():
     """test_get_no_existing_single_resource_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND]
     expected_response_body = json.loads(api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -293,11 +294,11 @@ def test_get_no_existing_single_resource_by_id_to_check_response_body():
 
 def test_create_new_user_to_check_response_code():
     """test_create_new_user_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_CREATE_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.CREATE]
     expected_response_code = api_reqres_v0.API_V0_CREATE_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
-actual_response_07_body = web_tests_response_bodies[api_reqres_v0.API_V0_CREATE_KEY]
+actual_response_07_body = web_tests_response_bodies[api_keys.CREATE]
 api_request_07_body = json.loads(api_reqres_v0.API_V0_CREATE_REQUEST_BODY)
 
 def test_new_user_id():
@@ -321,11 +322,11 @@ def test_new_user_creation_attribute():
 
 def test_put_update_user_to_check_response_code():
     """test_put_update_user_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_UPDATE_PUT_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.UPDATE_PUT]
     expected_response_code = api_reqres_v0.API_V0_UPDATE_PUT_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
-actual_response_08_body = web_tests_response_bodies[api_reqres_v0.API_V0_UPDATE_PUT_KEY]
+actual_response_08_body = web_tests_response_bodies[api_keys.UPDATE_PUT]
 api_request_08_body = json.loads(api_reqres_v0.API_V0_UPDATE_PUT_REQUEST_BODY)
 
 def test_put_update_user_name_attribute():
@@ -345,11 +346,11 @@ def test_put_update_user_updateat_attribute():
 
 def test_patch_update_user_to_check_response_code():
     """test_patch_update_user_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_UPDATE_PATCH_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.UPDATE_PATCH]
     expected_response_code = api_reqres_v0.API_V0_UPDATE_PATCH_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
-actual_response_09_body = web_tests_response_bodies[api_reqres_v0.API_V0_UPDATE_PATCH_KEY]
+actual_response_09_body = web_tests_response_bodies[api_keys.UPDATE_PATCH]
 api_request_09_body = json.loads(api_reqres_v0.API_V0_UPDATE_PATCH_REQUEST_BODY)
 
 def test_patch_update_user_name_attribute():
@@ -369,7 +370,7 @@ def test_patch_update_user_updateat_attribute():
 
 def test_delete_user_by_id_to_check_response_code():
     """test_delete_user_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_DELETE_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.DELETE]
     expected_response_code = api_reqres_v0.API_V0_DELETE_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
@@ -378,13 +379,13 @@ def test_delete_user_by_id_to_check_response_code():
 
 def test_successful_register_to_check_response_code():
     """test_successful_register_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.REGISTER_SUCCESSFUL]
     expected_response_code = api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_successful_register_to_check_response_body():
     """test_successful_register_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL]
     expected_response_body = json.loads(api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -393,13 +394,13 @@ def test_successful_register_to_check_response_body():
 
 def test_unsuccessful_register_to_check_response_code():
     """test_unsuccessful_register_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL]
     expected_response_code = api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_unsuccessful_register_to_check_response_body():
     """test_unsuccessful_register_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL]
     expected_response_body = json.loads(api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -408,13 +409,13 @@ def test_unsuccessful_register_to_check_response_body():
 
 def test_successful_login_to_check_response_code():
     """test_successful_login_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.LOGIN_SUCCESSFUL]
     expected_response_code = api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_successful_login_to_check_response_body():
     """test_successful_login_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL]
     expected_response_body = json.loads(api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -423,13 +424,13 @@ def test_successful_login_to_check_response_body():
 
 def test_unsuccessful_login_to_check_response_code():
     """test_unsuccessful_login_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL]
     expected_response_code = api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_unsuccessful_login_to_check_response_body():
     """test_unsuccessful_login_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL]
     expected_response_body = json.loads(api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_RESPONSE_BODY)
     assert actual_response_body == expected_response_body
 
@@ -438,12 +439,12 @@ def test_unsuccessful_login_to_check_response_body():
 
 def test_get_list_of_users_from_the_page_with_delay_to_check_response_code():
     """test_get_list_of_users_from_the_page_with_delay_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_reqres_v0.API_V0_DELAYED_KEY]
+    actual_response_code = web_tests_response_codes[api_keys.DELAYED_RESPONSE]
     expected_response_code = api_reqres_v0.API_V0_DELAYED_RESPONSE_CODE
     assert actual_response_code == expected_response_code
 
 def test_get_list_of_users_from_the_page_with_delay_to_check_response_body():
     """test_get_list_of_users_from_the_page_with_delay_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_reqres_v0.API_V0_DELAYED_KEY]
+    actual_response_body = web_tests_response_bodies[api_keys.DELAYED_RESPONSE]
     expected_response_body = json.loads(api_reqres_v0.API_V0_DELAYED_RESPONSE_BODY)
     assert actual_response_body == expected_response_body

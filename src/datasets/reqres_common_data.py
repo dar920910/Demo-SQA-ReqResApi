@@ -1,5 +1,8 @@
 """reqres_common_data.py: This module contains definitions of constants for expected results used in test suites."""
 
+import datasets.reqres_base_keys as api_keys
+
+
 WEBSITE_URL = "https://reqres.in"
 
 """ Comment for REQRES API Versions:
@@ -61,39 +64,22 @@ def get_api_request_url(api_version, sample_request):
 def get_sample_requests_urls(api_version):
     """get_sample_requests_urls(): Returns the dictionary of all available sample requests' URLs for the specified version of REQRES API."""
     urls = {}
-    urls['LIST_USERS'] = get_api_request_url(api_version, API_DEMO_01_LIST_USERS)
-    urls['SINGLE_USER'] = get_api_request_url(api_version, API_DEMO_02_SINGLE_USER)
-    urls['SINGLE_USER_NOT_FOUND'] = get_api_request_url(api_version, API_DEMO_03_SINGLE_USER_NOT_FOUND)
-    urls['LIST_RESOURCE'] = get_api_request_url(api_version, API_DEMO_04_LIST_RESOURCE)
-    urls['SINGLE_RESOURCE'] = get_api_request_url(api_version, API_DEMO_05_SINGLE_RESOURCE)
-    urls['SINGLE_RESOURCE_NOT_FOUND'] = get_api_request_url(api_version, API_DEMO_06_SINGLE_RESOURCE_NOT_FOUND)
-    urls['CREATE'] = get_api_request_url(api_version, API_DEMO_07_CREATE)
-    urls['UPDATE_PUT'] = get_api_request_url(api_version, API_DEMO_08_UPDATE_PUT)
-    urls['UPDATE_PATCH'] = get_api_request_url(api_version, API_DEMO_09_UPDATE_PATCH)
-    urls['DELETE'] = get_api_request_url(api_version, API_DEMO_10_DELETE)
-    urls['REGISTER_SUCCESSFUL'] = get_api_request_url(api_version, API_DEMO_11_REGISTER_SUCCESSFUL)
-    urls['REGISTER_UNSUCCESSFUL'] = get_api_request_url(api_version, API_DEMO_12_REGISTER_UNSUCCESSFUL)
-    urls['LOGIN_SUCCESSFUL'] = get_api_request_url(api_version, API_DEMO_13_LOGIN_SUCCESSFUL)
-    urls['LOGIN_UNSUCCESSFUL'] = get_api_request_url(api_version, API_DEMO_14_LOGIN_UNSUCCESSFUL)
-    urls['DELAYED_RESPONSE'] = get_api_request_url(api_version, API_DEMO_15_DELAYED_RESPONSE)
+    urls[api_keys.LIST_USERS] = get_api_request_url(api_version, API_DEMO_01_LIST_USERS)
+    urls[api_keys.SINGLE_USER] = get_api_request_url(api_version, API_DEMO_02_SINGLE_USER)
+    urls[api_keys.SINGLE_USER_NOT_FOUND] = get_api_request_url(api_version, API_DEMO_03_SINGLE_USER_NOT_FOUND)
+    urls[api_keys.LIST_RESOURCE] = get_api_request_url(api_version, API_DEMO_04_LIST_RESOURCE)
+    urls[api_keys.SINGLE_RESOURCE] = get_api_request_url(api_version, API_DEMO_05_SINGLE_RESOURCE)
+    urls[api_keys.SINGLE_RESOURCE_NOT_FOUND] = get_api_request_url(api_version, API_DEMO_06_SINGLE_RESOURCE_NOT_FOUND)
+    urls[api_keys.CREATE] = get_api_request_url(api_version, API_DEMO_07_CREATE)
+    urls[api_keys.UPDATE_PUT] = get_api_request_url(api_version, API_DEMO_08_UPDATE_PUT)
+    urls[api_keys.UPDATE_PATCH] = get_api_request_url(api_version, API_DEMO_09_UPDATE_PATCH)
+    urls[api_keys.DELETE] = get_api_request_url(api_version, API_DEMO_10_DELETE)
+    urls[api_keys.REGISTER_SUCCESSFUL] = get_api_request_url(api_version, API_DEMO_11_REGISTER_SUCCESSFUL)
+    urls[api_keys.REGISTER_UNSUCCESSFUL] = get_api_request_url(api_version, API_DEMO_12_REGISTER_UNSUCCESSFUL)
+    urls[api_keys.LOGIN_SUCCESSFUL] = get_api_request_url(api_version, API_DEMO_13_LOGIN_SUCCESSFUL)
+    urls[api_keys.LOGIN_UNSUCCESSFUL] = get_api_request_url(api_version, API_DEMO_14_LOGIN_UNSUCCESSFUL)
+    urls[api_keys.DELAYED_RESPONSE] = get_api_request_url(api_version, API_DEMO_15_DELAYED_RESPONSE)
     return urls
-
-API_V0_LIST_USERS_REQUEST_URL = "/api/users?page=2" #1
-API_V0_SINGLE_USER_REQUEST_URL = "/api/users/2" #2
-API_V0_SINGLE_USER_NOT_FOUND_REQUEST_URL = "/api/users/23" #3
-API_V0_LIST_RESOURCE_REQUEST_URL = "/api/unknown" #4
-API_V0_SINGLE_RESOURCE_REQUEST_URL = "/api/unknown/2" #5
-API_V0_SINGLE_RESOURCE_NOT_FOUND_REQUEST_URL = "/api/unknown/23" #6
-API_V0_CREATE_REQUEST_URL = "/api/users" #7
-API_V0_UPDATE_PUT_REQUEST_URL = "/api/users/2" #8
-API_V0_UPDATE_PATCH_REQUEST_URL = "/api/users/2" #9
-API_V0_DELETE_REQUEST_URL = "/api/users/2" #10
-API_V0_REGISTER_SUCCESSFUL_REQUEST_URL = "/api/register" #11
-API_V0_REGISTER_UNSUCCESSFUL_REQUEST_URL = "/api/register" #12
-API_V0_LOGIN_SUCCESSFUL_REQUEST_URL = "/api/login" #13
-API_V0_LOGIN_UNSUCCESSFUL_REQUEST_URL = "/api/login" #14
-API_V0_DELAYED_REQUEST_URL = "/api/users?delay=3" #15
-
 
 
 
@@ -101,25 +87,6 @@ API_V0_DELAYED_REQUEST_URL = "/api/users?delay=3" #15
 # Website https://reqres.in uses React, I estimate detecting CSS by manually in browser's DevTools as a more difficult task than using XPath values to identificate web elements in web tests.
 # Probably, these values should be replaced to XPath values for the same web elements for improving code understanding and simplify detecting the elements via browser's DevTools.
 
-
-
-# API REQUESTS KEYS - these constansts are used as keys in dictionaries to provide ability simplified comparing actual results of api tests and web tests.
-
-API_V0_LIST_USERS_KEY = "LIST_USERS"
-API_V0_SINGLE_USER_KEY = "SINGLE_USER"
-API_V0_SINGLE_USER_NOT_FOUND_KEY = "SINGLE_USER_NOT_FOUND"
-API_V0_LIST_RESOURCE_KEY = "LIST_RESOURCE"
-API_V0_SINGLE_RESOURCE_KEY = "SINGLE_RESOURCE"
-API_V0_SINGLE_RESOURCE_NOT_FOUND_KEY = "SINGLE_RESOURCE_NOT_FOUND"
-API_V0_CREATE_KEY = "CREATE"
-API_V0_UPDATE_PUT_KEY = "UPDATE_PUT"
-API_V0_UPDATE_PATCH_KEY = "UPDATE_PATCH"
-API_V0_DELETE_KEY = "DELETE"
-API_V0_REGISTER_SUCCESSFUL_KEY = "REGISTER_SUCCESSFUL"
-API_V0_REGISTER_UNSUCCESSFUL_KEY = "REGISTER_UNSUCCESSFUL"
-API_V0_LOGIN_SUCCESSFUL_KEY = "LOGIN_SUCCESSFUL"
-API_V0_LOGIN_UNSUCCESSFUL_KEY = "LOGIN_UNSUCCESSFUL"
-API_V0_DELAYED_KEY = "DELAYED"
 
 
 # REQUEST_01: LIST USERS
