@@ -1,0 +1,1 @@
+all = ["test_suite_api_v1.py", "test_suite_api_v2.py", "test_suite_api_v3.py"]
