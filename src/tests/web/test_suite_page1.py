@@ -1,4 +1,4 @@
-# web tests with selenium
+# test_suite_page1.py
 
 import json
 import pytest
