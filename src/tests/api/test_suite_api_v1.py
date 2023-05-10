@@ -1,17 +1,9 @@
-# api tests with requests
+# test_suite_api_v1.py
 
 import json
 import pytest
 import requests
 import tests.api_reqres_v0.api_reqres_v0 as api_reqres_v0
-
-
-# Function-Level Fixtures
-
-@pytest.fixture(scope="function", autouse=True)
-def fixture_to_document_testcase():
-    print("API Test Case:\n")
-
 
 
 # Define dictionaries to save results of requests (for comparing results of API and WEB tests)
@@ -27,7 +19,6 @@ api_response_01 = requests.get("https://reqres.in" + api_reqres_v0.API_V0_LIST_U
 api_tests_response_codes[api_reqres_v0.API_V0_LIST_USERS_KEY] = api_response_01.status_code
 api_tests_response_bodies[api_reqres_v0.API_V0_LIST_USERS_KEY] = api_response_01.json()
 
-@pytest.mark.usefixtures('fixture_to_document_testcase')
 def test_get_list_of_users_from_page_to_check_response_code():
     """test_get_list_of_users_from_page_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_reqres_v0.API_V0_LIST_USERS_KEY]
