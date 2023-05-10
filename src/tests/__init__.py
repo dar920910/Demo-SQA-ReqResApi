@@ -1,0 +1,1 @@
+all = ["test_suite_page1_vs_api_v1.py"]
