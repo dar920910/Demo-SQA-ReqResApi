@@ -379,3 +379,22 @@ RESPONSE_BODY_DELAYED = """{
         "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
     }
 }"""
+
+
+# Fake response body for false REQRES API versions.
+
+FAKE_RESPONSE_BODY_V2 = """{
+    "support": {
+        "api_version": "apiv2"
+        "url": "https://reqres.in/more-examples/#support-heading",
+        "text": "This is a fake response body from false REQRES API version 2 !!!"
+    }
+}"""
+
+FAKE_RESPONSE_BODY_V3 = """{
+    "support": {
+        "api_version": "apiv3"
+        "url": "https://reqres.in/all-examples/#support-heading",
+        "text": "This is a fake response body from false REQRES API version 3 !!!"
+    }
+}"""

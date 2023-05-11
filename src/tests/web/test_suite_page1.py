@@ -22,7 +22,7 @@ driver = webdriver.Chrome(options=target_options)
 
 print("Page loading ...")
 driver.set_page_load_timeout(10)
-driver.get(reqres.WEBSITE_URL)
+driver.get(reqres.WEBSITE_URL + page.web_pages['page1'])
 
 
 # Define dictionaries to save results of requests (for comparing results of WEB and API tests)
