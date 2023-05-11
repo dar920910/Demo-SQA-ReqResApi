@@ -172,27 +172,18 @@ def test_user_object_attribute_is_equal(actual_attr_value, expected_attr_value):
     assert actual_attr_value == expected_attr_value
 
 
-
-# REQUEST_07: CREATE
-
-def test_new_user_id():
-    """test_new_user_id"""
-    assert int(actual_response_07_body['id']) > 0
-
-def test_new_user_creation_attribute():
-    """test_new_user_creation_attribute"""
-    assert actual_response_07_body['createdAt'] != ""
-
-
-# REQUEST_08: UPDATE
-
-def test_put_update_user_updateat_attribute():
-    """test_put_update_user_updateat_attribute"""
-    assert actual_response_08_body['updatedAt'] != ""
+@pytest.mark.parametrize("datetime_attr_value",
+    [
+        actual_response_07_body[api_json.ATTR_USER_CREATED],
+        actual_response_08_body[api_json.ATTR_USER_UPDATED],
+        actual_response_09_body[api_json.ATTR_USER_UPDATED]
+    ]
+)
+def test_datetime_attribute_is_not_empty(datetime_attr_value):
+    """test_datetime_attribute_is_not_empty"""
+    assert datetime_attr_value != None
 
 
-# REQUEST_09: UPDATE
-
-def test_patch_update_user_updateat_attribute():
-    """test_patch_update_user_updateat_attribute"""
-    assert actual_response_09_body['updatedAt'] != ""
+def test_created_user_id_is_positive_value():
+    """test_created_user_id_is_positive_value"""
+    assert int(actual_response_07_body[api_json.ATTR_USER_ID]) > 0
