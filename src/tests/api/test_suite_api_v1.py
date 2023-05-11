@@ -104,7 +104,7 @@ api_tests_response_bodies[api_keys.DELAYED_RESPONSE] = api_response_15.json()
 def test_get_list_of_users_from_page_to_check_response_code():
     """test_get_list_of_users_from_page_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.LIST_USERS]
-    expected_response_code = reqres.API_V0_LIST_USERS_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_LIST_USERS
     assert actual_response_code == expected_response_code
 
 def test_get_list_of_users_from_page_to_check_response_body():
@@ -119,7 +119,7 @@ def test_get_list_of_users_from_page_to_check_response_body():
 def test_get_single_user_by_id_to_check_response_code():
     """test_get_single_user_by_id_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.SINGLE_USER]
-    expected_response_code = reqres.API_V0_SINGLE_USER_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_SINGLE_USER
     assert actual_response_code == expected_response_code
 
 def test_get_single_user_by_id_to_check_response_body():
@@ -134,7 +134,7 @@ def test_get_single_user_by_id_to_check_response_body():
 def test_get_no_existing_single_user_by_id_to_check_response_code():
     """test_get_no_existing_single_user_by_id_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND]
-    expected_response_code = reqres.API_V0_SINGLE_USER_NOT_FOUND_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_SINGLE_USER_NOT_FOUND
     assert actual_response_code == expected_response_code
 
 def test_get_no_existing_single_user_by_id_to_check_response_body():
@@ -149,7 +149,7 @@ def test_get_no_existing_single_user_by_id_to_check_response_body():
 def test_get_list_of_resources_to_check_response_code():
     """test_get_list_of_resources_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.LIST_RESOURCE]
-    expected_response_code = reqres.API_V0_LIST_RESOURCE_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_LIST_RESOURCE
     assert actual_response_code == expected_response_code
 
 def test_get_list_of_resources_to_check_response_body():
@@ -164,7 +164,7 @@ def test_get_list_of_resources_to_check_response_body():
 def test_get_single_resource_by_id_to_check_response_code():
     """test_get_single_resource_by_id_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.SINGLE_RESOURCE]
-    expected_response_code = reqres.API_V0_SINGLE_RESOURCE_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_SINGLE_RESOURCE
     assert actual_response_code == expected_response_code
 
 def test_get_single_resource_by_id_to_check_response_body():
@@ -179,7 +179,7 @@ def test_get_single_resource_by_id_to_check_response_body():
 def test_get_no_existing_single_resource_by_id_to_check_response_code():
     """test_get_no_existing_single_resource_by_id_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND]
-    expected_response_code = reqres.API_V0_SINGLE_RESOURCE_NOT_FOUND_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_SINGLE_RESOURCE_NOT_FOUND
     assert actual_response_code == expected_response_code
 
 def test_get_no_existing_single_resource_by_id_to_check_response_body():
@@ -194,7 +194,7 @@ def test_get_no_existing_single_resource_by_id_to_check_response_body():
 def test_create_new_user_to_check_response_code():
     """test_create_new_user_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.CREATE]
-    expected_response_code = reqres.API_V0_CREATE_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_CREATE
     assert actual_response_code == expected_response_code
 
 actual_response_07_body = api_tests_response_bodies[api_keys.CREATE]
@@ -221,7 +221,7 @@ def test_new_user_creation_attribute():
 def test_put_update_user_to_check_response_code():
     """test_put_update_user_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.UPDATE_PUT]
-    expected_response_code = reqres.API_V0_UPDATE_PUT_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_UPDATE_PUT
     assert actual_response_code == expected_response_code
 
 actual_response_08_body = api_tests_response_bodies[api_keys.UPDATE_PUT]
@@ -244,7 +244,7 @@ def test_put_update_user_updateat_attribute():
 def test_patch_update_user_to_check_response_code():
     """test_patch_update_user_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.UPDATE_PATCH]
-    expected_response_code = reqres.API_V0_UPDATE_PATCH_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_UPDATE_PATCH
     assert actual_response_code == expected_response_code
 
 actual_response_09_body = api_tests_response_bodies[api_keys.UPDATE_PATCH]
@@ -267,7 +267,7 @@ def test_patch_update_user_updateat_attribute():
 def test_delete_user_by_id_to_check_response_code():
     """test_delete_user_by_id_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.DELETE]
-    expected_response_code = reqres.API_V0_DELETE_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_DELETE
     assert actual_response_code == expected_response_code
 
 
@@ -276,7 +276,7 @@ def test_delete_user_by_id_to_check_response_code():
 def test_successful_register_to_check_response_code():
     """test_successful_register_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.REGISTER_SUCCESSFUL]
-    expected_response_code = reqres.API_V0_REGISTER_SUCCESSFUL_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_REGISTER_SUCCESSFUL
     assert actual_response_code == expected_response_code
 
 def test_successful_register_to_check_response_body():
@@ -291,7 +291,7 @@ def test_successful_register_to_check_response_body():
 def test_unsuccessful_register_to_check_response_code():
     """test_unsuccessful_register_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL]
-    expected_response_code = reqres.API_V0_REGISTER_UNSUCCESSFUL_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_REGISTER_UNSUCCESSFUL
     assert actual_response_code == expected_response_code
 
 def test_unsuccessful_register_to_check_response_body():
@@ -306,7 +306,7 @@ def test_unsuccessful_register_to_check_response_body():
 def test_successful_login_to_check_response_code():
     """test_successful_login_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.LOGIN_SUCCESSFUL]
-    expected_response_code = reqres.API_V0_LOGIN_SUCCESSFUL_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_LOGIN_SUCCESSFUL
     assert actual_response_code == expected_response_code
 
 def test_successful_login_to_check_response_body():
@@ -321,7 +321,7 @@ def test_successful_login_to_check_response_body():
 def test_unsuccessful_login_to_check_response_code():
     """test_unsuccessful_login_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL]
-    expected_response_code = reqres.API_V0_LOGIN_UNSUCCESSFUL_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_LOGIN_UNSUCCESSFUL
     assert actual_response_code == expected_response_code
 
 def test_unsuccessful_login_to_check_response_body():
@@ -336,7 +336,7 @@ def test_unsuccessful_login_to_check_response_body():
 def test_get_list_of_users_from_the_page_with_delay_to_check_response_code():
     """test_get_list_of_users_from_the_page_with_delay_to_check_response_code"""
     actual_response_code = api_tests_response_codes[api_keys.DELAYED_RESPONSE]
-    expected_response_code = reqres.API_V0_DELAYED_RESPONSE_CODE
+    expected_response_code = reqres.STATUS_CODE_DELAYED_RESPONSE
     assert actual_response_code == expected_response_code
 
 def test_get_list_of_users_from_the_page_with_delay_to_check_response_body():
