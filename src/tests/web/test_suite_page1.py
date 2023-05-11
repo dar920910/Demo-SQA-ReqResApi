@@ -193,252 +193,89 @@ web_tests_response_bodies[api_keys.DELAYED_RESPONSE] = json.loads(response_body_
 
 
 
+@pytest.mark.parametrize("actual_status_code, expected_status_code",
+    [
+        (web_tests_response_codes[api_keys.LIST_USERS], reqres.STATUS_CODE_LIST_USERS),
+        (web_tests_response_codes[api_keys.SINGLE_USER], reqres.STATUS_CODE_SINGLE_USER),
+        (web_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND], reqres.STATUS_CODE_SINGLE_USER_NOT_FOUND),
+        (web_tests_response_codes[api_keys.LIST_RESOURCE], reqres.STATUS_CODE_LIST_RESOURCE),
+        (web_tests_response_codes[api_keys.SINGLE_RESOURCE], reqres.STATUS_CODE_SINGLE_RESOURCE),
+        (web_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND], reqres.STATUS_CODE_SINGLE_RESOURCE_NOT_FOUND),
+        (web_tests_response_codes[api_keys.CREATE], reqres.STATUS_CODE_CREATE),
+        (web_tests_response_codes[api_keys.UPDATE_PUT], reqres.STATUS_CODE_UPDATE_PUT),
+        (web_tests_response_codes[api_keys.UPDATE_PATCH], reqres.STATUS_CODE_UPDATE_PATCH),
+        (web_tests_response_codes[api_keys.DELETE], reqres.STATUS_CODE_DELETE),
+        (web_tests_response_codes[api_keys.REGISTER_SUCCESSFUL], reqres.STATUS_CODE_REGISTER_SUCCESSFUL),
+        (web_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL], reqres.STATUS_CODE_REGISTER_UNSUCCESSFUL),
+        (web_tests_response_codes[api_keys.LOGIN_SUCCESSFUL], reqres.STATUS_CODE_LOGIN_SUCCESSFUL),
+        (web_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL], reqres.STATUS_CODE_LOGIN_UNSUCCESSFUL),
+        (web_tests_response_codes[api_keys.DELAYED_RESPONSE], reqres.STATUS_CODE_DELAYED_RESPONSE)
+    ]
+)
+def test_response_status_code(actual_status_code, expected_status_code):
+    """test_response_status_code"""
+    assert actual_status_code == expected_status_code
 
 
-# REQUEST_01: LIST USERS
-
-def test_get_list_of_users_from_page_to_check_response_code():
-    """test_get_list_of_users_from_page_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.LIST_USERS]
-    expected_response_code = reqres.STATUS_CODE_LIST_USERS
-    assert actual_response_code == expected_response_code
-
-def test_get_list_of_users_from_page_to_check_response_body():
-    """test_get_list_of_users_from_page_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.LIST_USERS]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LIST_USERS
+@pytest.mark.parametrize("actual_response_body, expected_response_body",
+    [
+        (web_tests_response_bodies[api_keys.LIST_USERS], api_json.JSON_BODY_RESPONSE_LIST_USERS),
+        (web_tests_response_bodies[api_keys.SINGLE_USER], api_json.JSON_BODY_RESPONSE_SINGLE_USER),
+        (web_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND], api_json.JSON_BODY_RESPONSE_SINGLE_USER_NOT_FOUND),
+        (web_tests_response_bodies[api_keys.LIST_RESOURCE], api_json.JSON_BODY_RESPONSE_LIST_RESOURCE),
+        (web_tests_response_bodies[api_keys.SINGLE_RESOURCE], api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE),
+        (web_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND], api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE_NOT_FOUND),
+        (web_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL], api_json.JSON_BODY_RESPONSE_REGISTER_SUCCESSFUL),
+        (web_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL], api_json.JSON_BODY_RESPONSE_REGISTER_UNSUCCESSFUL),
+        (web_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL], api_json.JSON_BODY_RESPONSE_LOGIN_SUCCESSFUL),
+        (web_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL], api_json.JSON_BODY_RESPONSE_LOGIN_UNSUCCESSFUL),
+        (web_tests_response_bodies[api_keys.DELAYED_RESPONSE], api_json.JSON_BODY_RESPONSE_DELAYED)
+    ]
+)
+def test_response_body_object(actual_response_body, expected_response_body):
+    """test_response_body_object"""
     assert actual_response_body == expected_response_body
 
-# REQUEST_02: SINGLE USER
-
-def test_get_single_user_by_id_to_check_response_code():
-    """test_get_single_user_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.SINGLE_USER]
-    expected_response_code = reqres.STATUS_CODE_SINGLE_USER
-    assert actual_response_code == expected_response_code
-
-def test_get_single_user_by_id_to_check_response_body():
-    """test_get_get_single_user_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_USER]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_USER
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_03: SINGLE USER NOT FOUND
-
-def test_get_no_existing_single_user_by_id_to_check_response_code():
-    """test_get_no_existing_single_user_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND]
-    expected_response_code = reqres.STATUS_CODE_SINGLE_USER_NOT_FOUND
-    assert actual_response_code == expected_response_code
-
-def test_get_no_existing_single_user_by_id_to_check_response_body():
-    """test_get_no_existing_single_user_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_USER_NOT_FOUND
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_04: LIST RESOURCE
-
-def test_get_list_of_resources_to_check_response_code():
-    """test_get_list_of_resources_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.LIST_RESOURCE]
-    expected_response_code = reqres.STATUS_CODE_LIST_RESOURCE
-    assert actual_response_code == expected_response_code
-
-def test_get_list_of_resources_to_check_response_body():
-    """test_get_list_of_resources_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.LIST_RESOURCE]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LIST_RESOURCE
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_05: SINGLE RESOURCE
-
-def test_get_single_resource_by_id_to_check_response_code():
-    """test_get_single_resource_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.SINGLE_RESOURCE]
-    expected_response_code = reqres.STATUS_CODE_SINGLE_RESOURCE
-    assert actual_response_code == expected_response_code
-
-def test_get_single_resource_by_id_to_check_response_body():
-    """test_get_single_resource_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_RESOURCE]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_06: SINGLE RESOURCE NOT FOUND
-
-def test_get_no_existing_single_resource_by_id_to_check_response_code():
-    """test_get_no_existing_single_resource_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND]
-    expected_response_code = reqres.STATUS_CODE_SINGLE_RESOURCE_NOT_FOUND
-    assert actual_response_code == expected_response_code
-
-def test_get_no_existing_single_resource_by_id_to_check_response_body():
-    """test_get_no_existing_single_resource_by_id_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE_NOT_FOUND
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_07: CREATE
-
-def test_create_new_user_to_check_response_code():
-    """test_create_new_user_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.CREATE]
-    expected_response_code = reqres.STATUS_CODE_CREATE
-    assert actual_response_code == expected_response_code
 
 actual_response_07_body = web_tests_response_bodies[api_keys.CREATE]
 api_request_07_body = api_json.JSON_BODY_REQUEST_CREATE
 
-def test_new_user_id():
-    """test_new_user_id"""
-    assert int(actual_response_07_body['id']) > 0
-
-def test_new_user_name_attribute():
-    """test_new_user_name_attribute"""
-    assert actual_response_07_body['name'] == api_request_07_body['name']
-
-def test_new_user_job_attribute():
-    """test_new_user_job_attribute"""
-    assert actual_response_07_body['job'] == api_request_07_body['job']
-
-def test_new_user_creation_attribute():
-    """test_new_user_creation_attribute"""
-    assert actual_response_07_body['createdAt'] != ""
-
-
-# REQUEST_08: UPDATE
-
-def test_put_update_user_to_check_response_code():
-    """test_put_update_user_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.UPDATE_PUT]
-    expected_response_code = reqres.STATUS_CODE_UPDATE_PUT
-    assert actual_response_code == expected_response_code
-
 actual_response_08_body = web_tests_response_bodies[api_keys.UPDATE_PUT]
 api_request_08_body = api_json.JSON_BODY_REQUEST_UPDATE_PUT
-
-def test_put_update_user_name_attribute():
-    """test_put_update_user_name_attribute"""
-    assert actual_response_08_body['name'] == api_request_08_body['name']
-
-def test_put_update_user_job_attribute():
-    """test_put_update_user_job_attribute"""
-    assert actual_response_08_body['job'] == api_request_08_body['job']
-
-def test_put_update_user_updateat_attribute():
-    """test_put_update_user_updateat_attribute"""
-    assert actual_response_08_body['updatedAt'] != ""
-
-
-# REQUEST_09: UPDATE
-
-def test_patch_update_user_to_check_response_code():
-    """test_patch_update_user_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.UPDATE_PATCH]
-    expected_response_code = reqres.STATUS_CODE_UPDATE_PATCH
-    assert actual_response_code == expected_response_code
 
 actual_response_09_body = web_tests_response_bodies[api_keys.UPDATE_PATCH]
 api_request_09_body = api_json.JSON_BODY_REQUEST_UPDATE_PATCH
 
-def test_patch_update_user_name_attribute():
-    """test_patch_update_user_name_attribute"""
-    assert actual_response_09_body['name'] == api_request_09_body['name']
 
-def test_patch_update_user_job_attribute():
-    """test_patch_update_user_job_attribute"""
-    assert actual_response_09_body['job'] == api_request_09_body['job']
+@pytest.mark.parametrize("actual_attr_value, expected_attr_value",
+    [
+        (actual_response_07_body[api_json.ATTR_USER_NAME], api_request_07_body[api_json.ATTR_USER_NAME]),
+        (actual_response_07_body[api_json.ATTR_USER_JOB], api_request_07_body[api_json.ATTR_USER_JOB]),
 
-def test_patch_update_user_updateat_attribute():
-    """test_patch_update_user_updateat_attribute"""
-    assert actual_response_09_body['updatedAt'] != ""
-
-
-# REQUEST_10: DELETE
-
-def test_delete_user_by_id_to_check_response_code():
-    """test_delete_user_by_id_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.DELETE]
-    expected_response_code = reqres.STATUS_CODE_DELETE
-    assert actual_response_code == expected_response_code
+        (actual_response_08_body[api_json.ATTR_USER_NAME], api_request_08_body[api_json.ATTR_USER_NAME]),
+        (actual_response_08_body[api_json.ATTR_USER_JOB], api_request_08_body[api_json.ATTR_USER_JOB]),
+        
+        (actual_response_09_body[api_json.ATTR_USER_NAME], api_request_09_body[api_json.ATTR_USER_NAME]),
+        (actual_response_09_body[api_json.ATTR_USER_JOB], api_request_09_body[api_json.ATTR_USER_JOB])
+    ]
+)
+def test_user_object_attribute_is_equal(actual_attr_value, expected_attr_value):
+    """test_user_object_attribute_is_equal"""
+    assert actual_attr_value == expected_attr_value
 
 
-# REQUEST_11: REGISTER SUCCESSFUL
-
-def test_successful_register_to_check_response_code():
-    """test_successful_register_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.REGISTER_SUCCESSFUL]
-    expected_response_code = reqres.STATUS_CODE_REGISTER_SUCCESSFUL
-    assert actual_response_code == expected_response_code
-
-def test_successful_register_to_check_response_body():
-    """test_successful_register_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_REGISTER_SUCCESSFUL
-    assert actual_response_body == expected_response_body
+@pytest.mark.parametrize("datetime_attr_value",
+    [
+        actual_response_07_body[api_json.ATTR_USER_CREATED],
+        actual_response_08_body[api_json.ATTR_USER_UPDATED],
+        actual_response_09_body[api_json.ATTR_USER_UPDATED]
+    ]
+)
+def test_datetime_attribute_is_not_empty(datetime_attr_value):
+    """test_datetime_attribute_is_not_empty"""
+    assert datetime_attr_value != None
 
 
-# REQUEST_12: REGISTER UNSUCCESSFUL
-
-def test_unsuccessful_register_to_check_response_code():
-    """test_unsuccessful_register_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL]
-    expected_response_code = reqres.STATUS_CODE_REGISTER_UNSUCCESSFUL
-    assert actual_response_code == expected_response_code
-
-def test_unsuccessful_register_to_check_response_body():
-    """test_unsuccessful_register_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_REGISTER_UNSUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_13: LOGIN SUCCESSFUL
-
-def test_successful_login_to_check_response_code():
-    """test_successful_login_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.LOGIN_SUCCESSFUL]
-    expected_response_code = reqres.STATUS_CODE_LOGIN_SUCCESSFUL
-    assert actual_response_code == expected_response_code
-
-def test_successful_login_to_check_response_body():
-    """test_successful_login_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LOGIN_SUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_14: LOGIN UNSUCCESSFUL
-
-def test_unsuccessful_login_to_check_response_code():
-    """test_unsuccessful_login_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL]
-    expected_response_code = reqres.STATUS_CODE_LOGIN_UNSUCCESSFUL
-    assert actual_response_code == expected_response_code
-
-def test_unsuccessful_login_to_check_response_body():
-    """test_unsuccessful_login_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LOGIN_UNSUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_15: DELAYED RESPONSE
-
-def test_get_list_of_users_from_the_page_with_delay_to_check_response_code():
-    """test_get_list_of_users_from_the_page_with_delay_to_check_response_code"""
-    actual_response_code = web_tests_response_codes[api_keys.DELAYED_RESPONSE]
-    expected_response_code = reqres.STATUS_CODE_DELAYED_RESPONSE
-    assert actual_response_code == expected_response_code
-
-def test_get_list_of_users_from_the_page_with_delay_to_check_response_body():
-    """test_get_list_of_users_from_the_page_with_delay_to_check_response_body"""
-    actual_response_body = web_tests_response_bodies[api_keys.DELAYED_RESPONSE]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_DELAYED
-    assert actual_response_body == expected_response_body
+def test_created_user_id_is_positive_value():
+    """test_created_user_id_is_positive_value"""
+    assert int(actual_response_07_body[api_json.ATTR_USER_ID]) > 0
