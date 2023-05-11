@@ -6,6 +6,13 @@ import tests.api.test_suite_api_v1 as test_suite_api_v1
 import tests.web.test_suite_page1 as test_suite_page1
 
 
+def setup_function(function):
+    print("Setup - Test Case: ", function.__doc__)
+    
+def teardown_function(function):
+    print("Teardown - Test Case: ", function.__doc__)
+
+
 # Define aliases of dictionaries keys for using in tests.
 
 api_resp_codes = test_suite_api_v1.api_tests_response_codes

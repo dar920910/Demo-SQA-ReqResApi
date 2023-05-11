@@ -7,6 +7,14 @@ from selenium.webdriver.common.by import By
 import time
 import datasets.reqres_base_keys as api_keys
 import datasets.reqres_common_data as api_reqres_v0
+import datasets.reqres_web_elements as page
+
+
+def setup_function(function):
+    print("Setup - Test Case: ", function.__doc__)
+    
+def teardown_function(function):
+    print("Teardown - Test Case: ", function.__doc__)
 
 
 # Configuring Selenium Web Driver for Chrome.
@@ -20,7 +28,7 @@ driver = webdriver.Chrome(options=target_options)
 
 print("Page loading ...")
 driver.set_page_load_timeout(10)
-driver.get('https://reqres.in')
+driver.get(api_reqres_v0.WEBSITE_URL)
 
 
 # Define dictionaries to save results of requests (for comparing results of WEB and API tests)
@@ -33,166 +41,166 @@ web_tests_response_bodies = {}
 
 # request_01
 
-request_01_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_LIST_USERS_SENDER_ELEMENT_CSS_SELECTOR)
+request_01_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LIST_USERS)
 request_01_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_01 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_01 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_01 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_01 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LIST_USERS] = int(response_code_01)
 web_tests_response_bodies[api_keys.LIST_USERS] = json.loads(response_body_01)
 
 # request_02
 
-request_02_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_SINGLE_USER_SENDER_ELEMENT_CSS_SELECTOR)
+request_02_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_USER)
 request_02_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_02 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_02 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_02 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_02 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_USER] = int(response_code_02)
 web_tests_response_bodies[api_keys.SINGLE_USER] = json.loads(response_body_02)
 
 # request_03
 
-request_03_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_SINGLE_USER_NOT_FOUND_SENDER_ELEMENT_CSS_SELECTOR)
+request_03_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_USER_NOT_FOUND)
 request_03_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_03 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_03 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_03 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_03 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND] = int(response_code_03)
 web_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND] = json.loads(response_body_03)
 
 # request_04
 
-request_04_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_LIST_RESOURCE_SENDER_ELEMENT_CSS_SELECTOR)
+request_04_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LIST_RESOURCE)
 request_04_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_04 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_04 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_04 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_04 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LIST_RESOURCE] = int(response_code_04)
 web_tests_response_bodies[api_keys.LIST_RESOURCE] = json.loads(response_body_04)
 
 # request_05
 
-request_05_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_SINGLE_RESOURCE_SENDER_ELEMENT_CSS_SELECTOR)
+request_05_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_RESOURCE)
 request_05_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_05 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_05 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_05 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_05 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_RESOURCE] = int(response_code_05)
 web_tests_response_bodies[api_keys.SINGLE_RESOURCE] = json.loads(response_body_05)
 
 # request_06
 
-request_06_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_SINGLE_RESOURCE_NOT_FOUND_SENDER_ELEMENT_CSS_SELECTOR)
+request_06_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_RESOURCE_NOT_FOUND)
 request_06_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_06 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_06 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_06 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_06 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND] = int(response_code_06)
 web_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND] = json.loads(response_body_06)
 
 # request_07
 
-request_07_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_CREATE_SENDER_ELEMENT_CSS_SELECTOR)
+request_07_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_CREATE)
 request_07_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_07 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_07 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_07 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_07 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.CREATE] = int(response_code_07)
 web_tests_response_bodies[api_keys.CREATE] = json.loads(response_body_07)
 
 # request_08
 
-request_08_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_UPDATE_PUT_SENDER_ELEMENT_CSS_SELECTOR)
+request_08_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_UPDATE_PUT)
 request_08_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_08 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_08 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_08 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_08 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.UPDATE_PUT] = int(response_code_08)
 web_tests_response_bodies[api_keys.UPDATE_PUT] = json.loads(response_body_08)
 
 # request_09
 
-request_09_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_UPDATE_PATCH_SENDER_ELEMENT_CSS_SELECTOR)
+request_09_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_UPDATE_PATCH)
 request_09_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_09 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_09 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_09 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_09 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.UPDATE_PATCH] = int(response_code_09)
 web_tests_response_bodies[api_keys.UPDATE_PATCH] = json.loads(response_body_09)
 
 # request_10
 
-request_10_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_DELETE_SENDER_ELEMENT_CSS_SELECTOR)
+request_10_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_DELETE)
 request_10_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_10 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-#response_body_10 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_10 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+#response_body_10 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.DELETE] = int(response_code_10)
 #web_tests_response_bodies[api_keys.DELETE] = json.loads(response_body_10) # raises JSONDecodeError !!!
 
 # request_11
 
-request_11_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_REGISTER_SUCCESSFUL_SENDER_ELEMENT_CSS_SELECTOR)
+request_11_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_REGISTER_SUCCESSFUL)
 request_11_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_11 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_11 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_11 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_11 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.REGISTER_SUCCESSFUL] = int(response_code_11)
 web_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL] = json.loads(response_body_11)
 
 # request_12
 
-request_12_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_REGISTER_UNSUCCESSFUL_SENDER_ELEMENT_CSS_SELECTOR)
+request_12_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_REGISTER_UNSUCCESSFUL)
 request_12_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_12 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_12 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_12 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_12 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL] = int(response_code_12)
 web_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL] = json.loads(response_body_12)
 
 # request_13
 
-request_13_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_LOGIN_SUCCESSFUL_SENDER_ELEMENT_CSS_SELECTOR)
+request_13_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LOGIN_SUCCESSFUL)
 request_13_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_13 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_13 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_13 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_13 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LOGIN_SUCCESSFUL] = int(response_code_13)
 web_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL] = json.loads(response_body_13)
 
 # request_14
 
-request_14_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_LOGIN_UNSUCCESSFUL_SENDER_ELEMENT_CSS_SELECTOR)
+request_14_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LOGIN_UNSUCCESSFUL)
 request_14_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_14 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_14 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_14 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_14 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL] = int(response_code_14)
 web_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL] = json.loads(response_body_14)
 
 # request_15
 
-request_15_sender_element = driver.find_element(By.CSS_SELECTOR, api_reqres_v0.API_V0_DELAYED_SENDER_ELEMENT_CSS_SELECTOR)
+request_15_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_DELAYED_RESPONSE)
 request_15_sender_element.click()
 driver.implicitly_wait(100)
 time.sleep(5)
-response_code_15 = driver.find_element(By.CSS_SELECTOR, ".response-code").text
-response_body_15 = driver.find_element(By.CSS_SELECTOR, ".response > pre").text
+response_code_15 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
+response_body_15 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.DELAYED_RESPONSE] = int(response_code_15)
 web_tests_response_bodies[api_keys.DELAYED_RESPONSE] = json.loads(response_body_15)
 

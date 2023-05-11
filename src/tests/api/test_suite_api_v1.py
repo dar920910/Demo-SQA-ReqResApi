@@ -6,6 +6,12 @@ import datasets.reqres_base_keys as api_keys
 import datasets.reqres_common_data as reqres
 import datasets.reqres_json_objects as api_json
 
+def setup_function(function):
+    print("Setup - Test Case: ", function.__doc__)
+    
+def teardown_function(function):
+    print("Teardown - Test Case: ", function.__doc__)
+
 
 # Get the List of Requests' URLs for REQRES API version 1.
 
