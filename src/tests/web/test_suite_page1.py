@@ -9,6 +9,7 @@ import datasets.reqres_base_keys as api_keys
 import datasets.reqres_json_objects as api_json
 import datasets.reqres_common_data as reqres
 import datasets.reqres_web_elements as page
+import output
 
 
 # Configuring Selenium Web Driver for Chrome.
@@ -172,10 +173,12 @@ class TestSuite_WebPage1:
         print("\nTEST CLASS TEARDOWN: {0}\n".format(cls.__name__))
 
     def setup_method(self, method):
+        output.print_testcase_delimiter()
         print("\nSetup Test Method: {0}\n".format(method))
 
     def teardown_method(self, method):
         print("\nTeardown Test Method: {0}\n".format(method))
+        output.print_testcase_delimiter()
 
 
     @pytest.mark.parametrize("actual_status_code, expected_status_code",
@@ -199,6 +202,7 @@ class TestSuite_WebPage1:
     )
     def test_response_status_code(self, actual_status_code, expected_status_code):
         """test_response_status_code"""
+        output.print_testing_results(actual_status_code, expected_status_code)
         assert actual_status_code == expected_status_code
 
 
@@ -219,6 +223,7 @@ class TestSuite_WebPage1:
     )
     def test_response_body_object(self, actual_response_body, expected_response_body):
         """test_response_body_object"""
+        output.print_testing_results(actual_response_body, expected_response_body)
         assert actual_response_body == expected_response_body
 
 
@@ -236,6 +241,7 @@ class TestSuite_WebPage1:
     )
     def test_user_object_attribute_is_equal(self, actual_attr_value, expected_attr_value):
         """test_user_object_attribute_is_equal"""
+        output.print_testing_results(actual_attr_value, expected_attr_value)
         assert actual_attr_value == expected_attr_value
 
 

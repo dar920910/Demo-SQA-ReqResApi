@@ -5,6 +5,7 @@ import datasets.reqres_base_keys as api_keys
 import datasets.reqres_json_objects as api_json
 import tests.api.test_suite_api_v1 as api_res
 import tests.web.test_suite_page1 as web_res
+import output
 
 
 def setup_module(module):
@@ -26,10 +27,12 @@ class TestSuite_WebPage1_vs_APIv1:
         print("\nTEST CLASS TEARDOWN: {0}\n".format(cls.__name__))
 
     def setup_method(self, method):
+        output.print_testcase_delimiter()
         print("\nSetup Test Method: {0}\n".format(method))
 
     def teardown_method(self, method):
         print("\nTeardown Test Method: {0}\n".format(method))
+        output.print_testcase_delimiter()
 
 
     @pytest.mark.parametrize("web_status_code, api_status_code",

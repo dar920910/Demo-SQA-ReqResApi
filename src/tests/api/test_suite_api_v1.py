@@ -5,6 +5,7 @@ import requests
 import datasets.reqres_base_keys as api_keys
 import datasets.reqres_common_data as reqres
 import datasets.reqres_json_objects as api_json
+import output
 
 
 # Get the List of Requests' URLs for REQRES API version 1.
@@ -73,24 +74,6 @@ def teardown_module(module):
     print("TEARDOWN: ", module)
 
 
-def print_testing_results(actual_result, expected_result):
-    print("\nActual Result: {0}\nExpected Result: {1}\n".format(actual_result, expected_result))
-
-def print_testcase_delimiter():
-    """print_testcase_delimiter(): Print a line of symbols to separate output for test cases."""
-
-    delimiter_symbol = '-'
-    delimiter_length = 50
-
-    x = 0
-    delimiter = ""
-    
-    while x < delimiter_length:
-        delimiter += delimiter_symbol
-        x += 1
-
-    print('\n', delimiter, '\n')
-
 
 class TestSuite_APIv1:
     """TestSuite_APIv1: This class contains API tests for REQRES API version 1."""
@@ -104,12 +87,12 @@ class TestSuite_APIv1:
         print("\nTEST CLASS TEARDOWN: {0}\n".format(cls.__name__))
 
     def setup_method(self, method):
-        print_testcase_delimiter()
+        output.print_testcase_delimiter()
         print("\nSetup Test Method: {0}\n".format(method))
 
     def teardown_method(self, method):
         print("\nTeardown Test Method: {0}\n".format(method))
-        print_testcase_delimiter()
+        output.print_testcase_delimiter()
 
 
     @pytest.mark.parametrize("actual_status_code, expected_status_code",
@@ -133,7 +116,7 @@ class TestSuite_APIv1:
     )
     def test_response_status_code(self, actual_status_code, expected_status_code):
         """test_response_status_code"""
-        print_testing_results(actual_status_code, expected_status_code)
+        output.print_testing_results(actual_status_code, expected_status_code)
         assert actual_status_code == expected_status_code
 
 
@@ -154,7 +137,7 @@ class TestSuite_APIv1:
     )
     def test_response_body_object(self, actual_response_body, expected_response_body):
         """test_response_body_object"""
-        print_testing_results(actual_response_body, expected_response_body)
+        output.print_testing_results(actual_response_body, expected_response_body)
         assert actual_response_body == expected_response_body
 
 
@@ -172,7 +155,7 @@ class TestSuite_APIv1:
     )
     def test_user_object_attribute_is_equal(self, actual_attr_value, expected_attr_value):
         """test_user_object_attribute_is_equal"""
-        print_testing_results(actual_attr_value, expected_attr_value)
+        output.print_testing_results(actual_attr_value, expected_attr_value)
         assert actual_attr_value == expected_attr_value
 
 
