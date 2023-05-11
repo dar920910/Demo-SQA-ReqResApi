@@ -126,62 +126,26 @@ def test_response_status_code(actual_status_code, expected_status_code):
     assert actual_status_code == expected_status_code
 
 
-
-
-
-
-# REQUEST_01: LIST USERS
-
-def test_get_list_of_users_from_page_to_check_response_body():
-    """test_get_list_of_users_from_page_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.LIST_USERS]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LIST_USERS
+@pytest.mark.parametrize("actual_response_body, expected_response_body",
+    [
+        (api_tests_response_bodies[api_keys.LIST_USERS], api_json.JSON_BODY_RESPONSE_LIST_USERS),
+        (api_tests_response_bodies[api_keys.SINGLE_USER], api_json.JSON_BODY_RESPONSE_SINGLE_USER),
+        (api_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND], api_json.JSON_BODY_RESPONSE_SINGLE_USER_NOT_FOUND),
+        (api_tests_response_bodies[api_keys.LIST_RESOURCE], api_json.JSON_BODY_RESPONSE_LIST_RESOURCE),
+        (api_tests_response_bodies[api_keys.SINGLE_RESOURCE], api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE),
+        (api_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND], api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE_NOT_FOUND),
+        (api_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL], api_json.JSON_BODY_RESPONSE_REGISTER_SUCCESSFUL),
+        (api_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL], api_json.JSON_BODY_RESPONSE_REGISTER_UNSUCCESSFUL),
+        (api_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL], api_json.JSON_BODY_RESPONSE_LOGIN_SUCCESSFUL),
+        (api_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL], api_json.JSON_BODY_RESPONSE_LOGIN_UNSUCCESSFUL),
+        (api_tests_response_bodies[api_keys.DELAYED_RESPONSE], api_json.JSON_BODY_RESPONSE_DELAYED)
+    ]
+)
+def test_response_body_object(actual_response_body, expected_response_body):
+    """test_response_body_object"""
+    print_testing_results(actual_response_body, expected_response_body)
     assert actual_response_body == expected_response_body
 
-
-# REQUEST_02: SINGLE USER
-
-def test_get_single_user_by_id_to_check_response_body():
-    """test_get_get_single_user_by_id_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.SINGLE_USER]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_USER
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_03: SINGLE USER NOT FOUND
-
-def test_get_no_existing_single_user_by_id_to_check_response_body():
-    """test_get_no_existing_single_user_by_id_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_USER_NOT_FOUND
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_04: LIST RESOURCE
-
-def test_get_list_of_resources_to_check_response_body():
-    """test_get_list_of_resources_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.LIST_RESOURCE]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LIST_RESOURCE
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_05: SINGLE RESOURCE
-
-def test_get_single_resource_by_id_to_check_response_body():
-    """test_get_single_resource_by_id_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.SINGLE_RESOURCE]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_06: SINGLE RESOURCE NOT FOUND
-
-def test_get_no_existing_single_resource_by_id_to_check_response_body():
-    """test_get_no_existing_single_resource_by_id_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_SINGLE_RESOURCE_NOT_FOUND
-    assert actual_response_body == expected_response_body
 
 
 # REQUEST_07: CREATE
@@ -237,48 +201,3 @@ def test_patch_update_user_job_attribute():
 def test_patch_update_user_updateat_attribute():
     """test_patch_update_user_updateat_attribute"""
     assert actual_response_09_body['updatedAt'] != ""
-
-
-# REQUEST_11: REGISTER SUCCESSFUL
-
-def test_successful_register_to_check_response_body():
-    """test_successful_register_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_REGISTER_SUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_12: REGISTER UNSUCCESSFUL
-
-def test_unsuccessful_register_to_check_response_body():
-    """test_unsuccessful_register_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_REGISTER_UNSUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_13: LOGIN SUCCESSFUL
-
-def test_successful_login_to_check_response_body():
-    """test_successful_login_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LOGIN_SUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_14: LOGIN UNSUCCESSFUL
-
-def test_unsuccessful_login_to_check_response_body():
-    """test_unsuccessful_login_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_LOGIN_UNSUCCESSFUL
-    assert actual_response_body == expected_response_body
-
-
-# REQUEST_15: DELAYED RESPONSE
-
-def test_get_list_of_users_from_the_page_with_delay_to_check_response_body():
-    """test_get_list_of_users_from_the_page_with_delay_to_check_response_body"""
-    actual_response_body = api_tests_response_bodies[api_keys.DELAYED_RESPONSE]
-    expected_response_body = api_json.JSON_BODY_RESPONSE_DELAYED
-    assert actual_response_body == expected_response_body
