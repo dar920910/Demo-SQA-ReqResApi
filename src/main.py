@@ -1,29 +1,32 @@
-print("\nWelcome to Python Demo Automation for REQRES API !!!\n")
+""" main.py: Main module for running tests in an interactive mode."""
 
-""" Comment for REQRES Web Pages:
-Page 1: This is a web page returned from REQRES web server when processing default URL ("https://reqres.in/").
-Page 2: This is a fake web page returned when processing a fake URL ("https://reqres.in/more-examples.html").
-Page 3: This is a fake web page returned from REQRES web server when processing default URL ("https://reqres.in/all-examples.html").
-Pages 2 and 3 are false web pages created by me in demonstration aims.
-These will be used to demonstrate scaling of web testing in this project.
-"""
-web_pages = {'page1': '', 'page2': 'more-examples.html', 'page3': 'all-examples.html'}
+def print_welcome_text():
+    print("\n*** Welcome to Python Demo Automation for REQRES API !!! ***\n")
+    print("\nSelect tests for running via pytest:\n")
+    print(" > Press '0' to run tests for Web Page 1 and API version 1")
+    print(" > Press '1' to run tests for API version 1 (only API tests)")
+    print(" > Press '2' to run tests for Web Page 1 (only web tests)")
+    print(" > Press '3' to run all API tests (for all available API versions)")
+    print(" > Press '4' to run all WEB tests (for all available web Pages)")
+    print(" > Press '5' to run ALL tests (all API versions + all web pages)")
+
+def run_tests(tests_list):
+    import pytest
+    
+    pytest_args = ["-v", "-s"]
+    pytest_args.extend(tests_list)
+    print("Arguments for pytest: ", pytest_args)
+    
+    pytest.main(pytest_args)
 
 def main():
-    print("0 - Web Page 1 and API version 1")
-    print("1 - API version 1")
-    print("2 - Web Page 1")
-    print("3 - All API versions")
-    print("4 - All Web Pages")
-    print("5 - ALL TESTS")
-    
+    print_welcome_text()
 
     user_input = ''
     valid_choice = False
     tests_modules = []
     while valid_choice == False:
-        print("Select tests to run: ")
-        user_input = input()
+        user_input = input("\nInput a digit to run wished suite of auto-tests:\n> ")
 
         if user_input == '0':
             # Web Page 1 and API version 1
@@ -56,16 +59,7 @@ def main():
             return
         else:
             print("ERROR")
-        
-    print(user_input)
-    
-    import pytest
-    
-    pytest_args = ["-v", "-s"]
-    pytest_args.extend(tests_modules)
-    
-    print("Arguments for pytest: ", pytest_args)
-    
-    pytest.main(pytest_args)
+
+    run_tests(tests_modules)
 
 main()

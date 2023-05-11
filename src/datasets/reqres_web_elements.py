@@ -1,5 +1,16 @@
 """ reqres_web_elements.py: This module contains definitions of web elements used by Selenium web driver in web tests. """
 
+
+""" Comment for REQRES Web Pages:
+Page 1: This is a web page returned from REQRES web server when processing default URL ("https://reqres.in/").
+Page 2: This is a fake web page returned when processing a fake URL ("https://reqres.in/more-examples.html").
+Page 3: This is a fake web page returned from REQRES web server when processing default URL ("https://reqres.in/all-examples.html").
+Pages 2 and 3 are false web pages created by me in demonstration aims.
+These will be used to demonstrate scaling of web testing in this project.
+"""
+web_pages = {'page1': '', 'page2': 'more-examples.html', 'page3': 'all-examples.html'}
+
+
 # CSS selectors' constants from a script generated via Selenium IDE.
 
 ELEMENT_CSS_SELECTOR_REQUEST_LIST_USERS = "li:nth-child(1) > a"
