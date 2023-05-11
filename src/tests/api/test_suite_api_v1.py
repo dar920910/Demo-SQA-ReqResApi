@@ -148,21 +148,36 @@ def test_response_body_object(actual_response_body, expected_response_body):
 
 
 
-# REQUEST_07: CREATE
 
 actual_response_07_body = api_tests_response_bodies[api_keys.CREATE]
+actual_response_08_body = api_tests_response_bodies[api_keys.UPDATE_PUT]
+actual_response_09_body = api_tests_response_bodies[api_keys.UPDATE_PATCH]
+
+
+@pytest.mark.parametrize("actual_attr_value, expected_attr_value",
+    [
+        (actual_response_07_body[api_json.ATTR_USER_NAME], api_request_07_body[api_json.ATTR_USER_NAME]),
+        (actual_response_07_body[api_json.ATTR_USER_JOB], api_request_07_body[api_json.ATTR_USER_JOB]),
+
+        (actual_response_08_body[api_json.ATTR_USER_NAME], api_request_08_body[api_json.ATTR_USER_NAME]),
+        (actual_response_08_body[api_json.ATTR_USER_JOB], api_request_08_body[api_json.ATTR_USER_JOB]),
+        
+        (actual_response_09_body[api_json.ATTR_USER_NAME], api_request_09_body[api_json.ATTR_USER_NAME]),
+        (actual_response_09_body[api_json.ATTR_USER_JOB], api_request_09_body[api_json.ATTR_USER_JOB])
+    ]
+)
+def test_user_object_attribute_is_equal(actual_attr_value, expected_attr_value):
+    """test_user_object_attribute_is_equal"""
+    print_testing_results(actual_attr_value, expected_attr_value)
+    assert actual_attr_value == expected_attr_value
+
+
+
+# REQUEST_07: CREATE
 
 def test_new_user_id():
     """test_new_user_id"""
     assert int(actual_response_07_body['id']) > 0
-
-def test_new_user_name_attribute():
-    """test_new_user_name_attribute"""
-    assert actual_response_07_body['name'] == api_request_07_body['name']
-
-def test_new_user_job_attribute():
-    """test_new_user_job_attribute"""
-    assert actual_response_07_body['job'] == api_request_07_body['job']
 
 def test_new_user_creation_attribute():
     """test_new_user_creation_attribute"""
@@ -171,32 +186,12 @@ def test_new_user_creation_attribute():
 
 # REQUEST_08: UPDATE
 
-actual_response_08_body = api_tests_response_bodies[api_keys.UPDATE_PUT]
-
-def test_put_update_user_name_attribute():
-    """test_put_update_user_name_attribute"""
-    assert actual_response_08_body['name'] == api_request_08_body['name']
-
-def test_put_update_user_job_attribute():
-    """test_put_update_user_job_attribute"""
-    assert actual_response_08_body['job'] == api_request_08_body['job']
-
 def test_put_update_user_updateat_attribute():
     """test_put_update_user_updateat_attribute"""
     assert actual_response_08_body['updatedAt'] != ""
 
 
 # REQUEST_09: UPDATE
-
-actual_response_09_body = api_tests_response_bodies[api_keys.UPDATE_PATCH]
-
-def test_patch_update_user_name_attribute():
-    """test_patch_update_user_name_attribute"""
-    assert actual_response_09_body['name'] == api_request_09_body['name']
-
-def test_patch_update_user_job_attribute():
-    """test_patch_update_user_job_attribute"""
-    assert actual_response_09_body['job'] == api_request_09_body['job']
 
 def test_patch_update_user_updateat_attribute():
     """test_patch_update_user_updateat_attribute"""
