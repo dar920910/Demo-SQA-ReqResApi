@@ -43,8 +43,7 @@ web_tests_response_bodies = {}
 
 request_01_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LIST_USERS)
 request_01_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_01 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_01 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LIST_USERS] = int(response_code_01)
@@ -54,8 +53,7 @@ web_tests_response_bodies[api_keys.LIST_USERS] = json.loads(response_body_01)
 
 request_02_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_USER)
 request_02_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_02 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_02 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_USER] = int(response_code_02)
@@ -65,8 +63,7 @@ web_tests_response_bodies[api_keys.SINGLE_USER] = json.loads(response_body_02)
 
 request_03_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_USER_NOT_FOUND)
 request_03_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_03 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_03 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_USER_NOT_FOUND] = int(response_code_03)
@@ -76,8 +73,7 @@ web_tests_response_bodies[api_keys.SINGLE_USER_NOT_FOUND] = json.loads(response_
 
 request_04_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LIST_RESOURCE)
 request_04_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_04 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_04 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LIST_RESOURCE] = int(response_code_04)
@@ -87,8 +83,7 @@ web_tests_response_bodies[api_keys.LIST_RESOURCE] = json.loads(response_body_04)
 
 request_05_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_RESOURCE)
 request_05_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_05 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_05 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_RESOURCE] = int(response_code_05)
@@ -98,8 +93,7 @@ web_tests_response_bodies[api_keys.SINGLE_RESOURCE] = json.loads(response_body_0
 
 request_06_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_SINGLE_RESOURCE_NOT_FOUND)
 request_06_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_06 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_06 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.SINGLE_RESOURCE_NOT_FOUND] = int(response_code_06)
@@ -109,8 +103,7 @@ web_tests_response_bodies[api_keys.SINGLE_RESOURCE_NOT_FOUND] = json.loads(respo
 
 request_07_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_CREATE)
 request_07_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_07 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_07 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.CREATE] = int(response_code_07)
@@ -120,8 +113,7 @@ web_tests_response_bodies[api_keys.CREATE] = json.loads(response_body_07)
 
 request_08_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_UPDATE_PUT)
 request_08_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_08 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_08 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.UPDATE_PUT] = int(response_code_08)
@@ -131,8 +123,7 @@ web_tests_response_bodies[api_keys.UPDATE_PUT] = json.loads(response_body_08)
 
 request_09_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_UPDATE_PATCH)
 request_09_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_09 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_09 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.UPDATE_PATCH] = int(response_code_09)
@@ -142,8 +133,7 @@ web_tests_response_bodies[api_keys.UPDATE_PATCH] = json.loads(response_body_09)
 
 request_10_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_DELETE)
 request_10_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_10 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 #response_body_10 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.DELETE] = int(response_code_10)
@@ -153,8 +143,7 @@ web_tests_response_codes[api_keys.DELETE] = int(response_code_10)
 
 request_11_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_REGISTER_SUCCESSFUL)
 request_11_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_11 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_11 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.REGISTER_SUCCESSFUL] = int(response_code_11)
@@ -164,8 +153,7 @@ web_tests_response_bodies[api_keys.REGISTER_SUCCESSFUL] = json.loads(response_bo
 
 request_12_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_REGISTER_UNSUCCESSFUL)
 request_12_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_12 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_12 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.REGISTER_UNSUCCESSFUL] = int(response_code_12)
@@ -175,8 +163,7 @@ web_tests_response_bodies[api_keys.REGISTER_UNSUCCESSFUL] = json.loads(response_
 
 request_13_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LOGIN_SUCCESSFUL)
 request_13_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_13 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_13 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LOGIN_SUCCESSFUL] = int(response_code_13)
@@ -186,8 +173,7 @@ web_tests_response_bodies[api_keys.LOGIN_SUCCESSFUL] = json.loads(response_body_
 
 request_14_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_LOGIN_UNSUCCESSFUL)
 request_14_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_14 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_14 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.LOGIN_UNSUCCESSFUL] = int(response_code_14)
@@ -197,8 +183,7 @@ web_tests_response_bodies[api_keys.LOGIN_UNSUCCESSFUL] = json.loads(response_bod
 
 request_15_sender_element = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_REQUEST_DELAYED_RESPONSE)
 request_15_sender_element.click()
-driver.implicitly_wait(100)
-time.sleep(5)
+time.sleep(page.WAITING_TIMEOUT)
 response_code_15 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_CODE).text
 response_body_15 = driver.find_element(By.CSS_SELECTOR, page.ELEMENT_CSS_SELECTOR_RESPONSE_BODY).text
 web_tests_response_codes[api_keys.DELAYED_RESPONSE] = int(response_code_15)

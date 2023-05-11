@@ -20,3 +20,7 @@ ELEMENT_CSS_SELECTOR_REQUEST_DELAYED_RESPONSE = "li:nth-child(15) > a"
 
 ELEMENT_CSS_SELECTOR_RESPONSE_CODE = ".response-code"
 ELEMENT_CSS_SELECTOR_RESPONSE_BODY = ".response > pre"
+
+
+# This is a value of time in seconds to wait for updating web elements after sending requests by Selenium web driver.
+WAITING_TIMEOUT = 5
