@@ -36,6 +36,25 @@ INVALID_RESOURCE_ID = 23
 DELAY_VALUE = 3
 
 
+# Titles of Sample Requests from REQRES API Website for using as docstrings.
+
+REQUEST_TITLE_LIST_USERS = "Request_01: List Users"
+REQUEST_TITLE_SINGLE_USER = "Request_02: Single User"
+REQUEST_TITLE_SINGLE_USER_NOT_FOUND = "Request_03: Single User Not Found"
+REQUEST_TITLE_LIST_RESOURCE = "Request_04: List Resource"
+REQUEST_TITLE_SINGLE_RESOURCE = "Request_05: Single Resource"
+REQUEST_TITLE_SINGLE_RESOURCE_NOT_FOUND = "Request_06: Single Resource Not Found"
+REQUEST_TITLE_CREATE = "Request_07: Create"
+REQUEST_TITLE_UPDATE_PUT = "Request_08: Update"
+REQUEST_TITLE_UPDATE_PATCH = "Request_09: Update"
+REQUEST_TITLE_DELETE = "Request_10: Delete"
+REQUEST_TITLE_REGISTER_SUCCESSFUL = "Request_11: Register Successful"
+REQUEST_TITLE_REGISTER_UNSUCCESSFUL = "Request_12: Register Unsuccessful"
+REQUEST_TITLE_LOGIN_SUCCESSFUL = "Request_13: Login Successful"
+REQUEST_TITLE_LOGIN_UNSUCCESSFUL = "Request_14: Login Unsuccessful"
+REQUEST_TITLE_DELAYED_RESPONSE = "Request_15: Delayed Response"
+
+
 # URLs of Sample Requests from REQRES API Website
 
 API_DEMO_01_LIST_USERS = API_URL_REQUEST_LIST_USERS + str(LAST_PAGE_NUMBER)
@@ -82,6 +101,47 @@ def get_sample_requests_urls(api_version):
     return urls
 
 
+# Request Bodies of Sample Requests from REQRES API Website
+
+REQUEST_BODY_CREATE = """{
+    "name": "morpheus",
+    "job": "leader"
+}
+"""
+
+REQUEST_BODY_UPDATE_PUT = """{
+    "name": "morpheus",
+    "job": "zion resident"
+}
+"""
+
+REQUEST_BODY_UPDATE_PATCH = """{
+    "name": "morpheus",
+    "job": "zion resident"
+}
+"""
+
+REQUEST_BODY_REGISTER_SUCCESSFUL = """{
+    "email": "eve.holt@reqres.in",
+    "password": "pistol"
+}"""
+
+REQUEST_BODY_REGISTER_UNSUCCESSFUL = """{
+    "email": "sydney@fife"
+}
+"""
+
+REQUEST_BODY_LOGIN_SUCCESSFUL = """{
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+}
+"""
+
+REQUEST_BODY_LOGIN_UNSUCCESSFUL = """{
+    "email": "peter@klaven"
+}"""
+
+
 # Response Status Codes of Sample Requests from REQRES API Website
 
 STATUS_CODE_LIST_USERS = 200
@@ -101,16 +161,9 @@ STATUS_CODE_LOGIN_UNSUCCESSFUL = 400
 STATUS_CODE_DELAYED_RESPONSE = 200
 
 
+# Request Bodies of Sample Requests from REQRES API Website
 
-
-
-# REQUEST_01: LIST USERS
-
-API_V0_LIST_USERS_REQUEST_TITLE = "Send Request_01: List Users"
-
-
-
-API_V0_LIST_USERS_RESPONSE_BODY = """{
+RESPONSE_BODY_LIST_USERS = """{
     "page": 2,
     "per_page": 6,
     "total": 12,
@@ -165,14 +218,7 @@ API_V0_LIST_USERS_RESPONSE_BODY = """{
     }
 }"""
 
-
-# REQUEST_02: SINGLE USER
-
-API_V0_SINGLE_USER_REQUEST_TITLE = "Send Request_02: Single User"
-
-
-
-API_V0_SINGLE_USER_RESPONSE_BODY = """{
+RESPONSE_BODY_SINGLE_USER = """{
     "data": {
         "id": 2,
         "email": "janet.weaver@reqres.in",
@@ -186,23 +232,9 @@ API_V0_SINGLE_USER_RESPONSE_BODY = """{
     }
 }"""
 
+RESPONSE_BODY_SINGLE_USER_NOT_FOUND = "{}"
 
-# REQUEST_03: SINGLE USER NOT FOUND
-
-API_V0_SINGLE_USER_NOT_FOUND_REQUEST_TITLE = "Send Request_03: Single User Not Found"
-
-
-
-API_V0_SINGLE_USER_NOT_FOUND_RESPONSE_BODY = "{}"
-
-
-# REQUEST_04: LIST RESOURCE
-
-API_V0_LIST_RESOURCE_REQUEST_TITLE = "Send Request_04: List Resource"
-
-
-
-API_V0_LIST_RESOURCE_RESPONSE_BODY = """{
+RESPONSE_BODY_LIST_RESOURCE = """{
     "page": 1,
     "per_page": 6,
     "total": 12,
@@ -258,14 +290,7 @@ API_V0_LIST_RESOURCE_RESPONSE_BODY = """{
 }
 """
 
-
-# REQUEST_05: SINGLE RESOURCE
-
-API_V0_SINGLE_RESOURCE_REQUEST_TITLE = "Send Request_05: Single Resource"
-
-
-
-API_V0_SINGLE_RESOURCE_RESPONSE_BODY = """{
+RESPONSE_BODY_SINGLE_RESOURCE = """{
     "data": {
         "id": 2,
         "name": "fuchsia rose",
@@ -280,150 +305,27 @@ API_V0_SINGLE_RESOURCE_RESPONSE_BODY = """{
 }
 """
 
+RESPONSE_BODY_SINGLE_RESOURCE_NOT_FOUND = "{}"
 
-# REQUEST_06: SINGLE RESOURCE NOT FOUND
-
-API_V0_SINGLE_RESOURCE_NOT_FOUND_REQUEST_TITLE = "Send Request_06: Single Resource Not Found"
-
-
-
-API_V0_SINGLE_RESOURCE_NOT_FOUND_RESPONSE_BODY = "{}"
-
-
-# REQUEST_07: CREATE
-
-API_V0_CREATE_REQUEST_TITLE = "Send Request_07: Create"
-
-
-API_V0_CREATE_REQUEST_BODY = """{
-    "name": "morpheus",
-    "job": "leader"
-}
-"""
-
-API_V0_CREATE_RESPONSE_BODY = """{
-    "name": "morpheus",
-    "job": "leader",
-    "id": "17",
-    "createdAt": "2023-05-08T14:16:23.928Z"
-}""" # 'id' and 'createdAt' are not constant values !!!
-
-
-# REQUEST_08: UPDATE
-
-API_V0_UPDATE_PUT_REQUEST_TITLE = "Send Request_08: Update"
-
-
-API_V0_UPDATE_PUT_REQUEST_BODY = """{
-    "name": "morpheus",
-    "job": "zion resident"
-}
-"""
-
-API_V0_UPDATE_PUT_RESPONSE_BODY = """{
-    "name": "morpheus",
-    "job": "zion resident",
-    "updatedAt": "2023-05-08T14:23:12.666Z"
-}
-""" # 'updatedAt' is not a constant value !!!
-
-
-# REQUEST_09: UPDATE
-
-API_V0_UPDATE_PATCH_REQUEST_TITLE = "Send Request_09: Update"
-
-
-API_V0_UPDATE_PATCH_REQUEST_BODY = """{
-    "name": "morpheus",
-    "job": "zion resident"
-}
-"""
-
-API_V0_UPDATE_PATCH_RESPONSE_BODY = """{
-    "name": "morpheus",
-    "job": "zion resident",
-    "updatedAt": "2023-05-08T14:26:18.555Z"
-}
-"""
-
-
-# REQUEST_10: DELETE
-
-API_V0_DELETE_REQUEST_TITLE = "Send Request_10: Delete"
-
-
-
-
-
-# REQUEST_11: REGISTER SUCCESSFUL
-
-API_V0_REGISTER_SUCCESSFUL_REQUEST_TITLE = "Send Request_11: Register Successful"
-
-
-API_V0_REGISTER_SUCCESSFUL_REQUEST_BODY = """{
-    "email": "eve.holt@reqres.in",
-    "password": "pistol"
-}"""
-
-API_V0_REGISTER_SUCCESSFUL_RESPONSE_BODY = """{
+RESPONSE_BODY_REGISTER_SUCCESSFUL = """{
     "id": 4,
     "token": "QpwL5tke4Pnpja7X4"
 }"""
 
-
-# REQUEST_12: REGISTER UNSUCCESSFUL
-
-API_V0_REGISTER_UNSUCCESSFUL_REQUEST_TITLE = "Send Request_12: Register Unsuccessful"
-
-
-API_V0_REGISTER_UNSUCCESSFUL_REQUEST_BODY = """{
-    "email": "sydney@fife"
-}
-"""
-
-API_V0_REGISTER_UNSUCCESSFUL_RESPONSE_BODY = """{
+RESPONSE_BODY_REGISTER_UNSUCCESSFUL = """{
     "error": "Missing password"
 }
 """
 
-
-# REQUEST_13: LOGIN SUCCESSFUL
-
-API_V0_LOGIN_SUCCESSFUL_REQUEST_TITLE = "Send Request_13: Login Successful"
-
-
-API_V0_LOGIN_SUCCESSFUL_REQUEST_BODY = """{
-    "email": "eve.holt@reqres.in",
-    "password": "cityslicka"
-}
-"""
-
-API_V0_LOGIN_SUCCESSFUL_RESPONSE_BODY = """{
+RESPONSE_BODY_LOGIN_SUCCESSFUL = """{
     "token": "QpwL5tke4Pnpja7X4"
 }"""
 
-
-# REQUEST_14: LOGIN UNSUCCESSFUL
-
-API_V0_LOGIN_UNSUCCESSFUL_REQUEST_TITLE = "Send Request_14: Login Unsuccessful"
-
-
-API_V0_LOGIN_UNSUCCESSFUL_REQUEST_BODY = """{
-    "email": "peter@klaven"
-}"""
-
-API_V0_LOGIN_UNSUCCESSFUL_RESPONSE_BODY = """{
+RESPONSE_BODY_LOGIN_UNSUCCESSFUL = """{
     "error": "Missing password"
 }"""
 
-
-# REQUEST_15: DELAYED RESPONSE
-
-API_V0_DELAYED_REQUEST_TITLE = "Send Request_15: Delayed Response"
-
-
-
-API_V0_DELAYED_RESPONSE_BODY = """{
+RESPONSE_BODY_DELAYED = """{
     "page": 1,
     "per_page": 6,
     "total": 12,
