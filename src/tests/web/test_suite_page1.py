@@ -1,4 +1,4 @@
-# test_suite_page1.py
+""" test_suite_api_v1.py: This module contains WEB tests for the current version of REQRES API. """
 
 import json
 import pytest

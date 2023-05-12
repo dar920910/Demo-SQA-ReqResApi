@@ -1,4 +1,4 @@
-# test_suite_page1_vs_api_v1.py
+""" test_suite_page1_vs_api_v1.py: This module contains tests to compare results of API and WEB tests for the current version of REQRES API."""
 
 import pytest
 import datasets.reqres_base_keys as api_keys

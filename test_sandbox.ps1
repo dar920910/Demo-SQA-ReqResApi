@@ -1,1 +1,0 @@
-.\.venv\Scripts\python.exe -m pytest -vs src\tests\test_sandbox_suite.py

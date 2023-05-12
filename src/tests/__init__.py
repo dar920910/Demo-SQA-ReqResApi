@@ -1,1 +1,0 @@
-all = ["test_sandbox_suite.py"]

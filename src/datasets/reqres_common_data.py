@@ -1,4 +1,4 @@
-"""reqres_common_data.py: This module contains definitions of constants for expected results used in test suites."""
+""" reqres_common_data.py: This module contains definitions of constants for expected results used in test suites. """
 
 import datasets.reqres_base_keys as api_keys
 
